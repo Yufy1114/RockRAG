@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv.windows-backup/
+
+# IDE and local settings
+.idea/
+.codex/
+.agents/
+.env
+
+# Model caches
+.cache/
+models/
+huggingface/
+
+# Local vector databases (keep storage/.gitkeep)
+storage/*
+!storage/.gitkeep

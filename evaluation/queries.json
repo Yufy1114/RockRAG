@@ -1,0 +1,179 @@
+[
+  {
+    "query_id": "q_ballad_80s",
+    "query": "melodic 80s hard rock power ballad",
+    "rationale": "Grade 2 requires 1980s plus explicit power-ballad and melodic/hard-rock evidence; grade 1 covers explicit power ballads with slightly weaker melodic or hard-rock metadata.",
+    "relevance": {
+      "scorpions-still-loving-you": 2,
+      "whitesnake-is-this-love": 2,
+      "warrant-heaven": 2,
+      "dokken-alone-again": 2,
+      "motley-crue-home-sweet-home": 2,
+      "poison-every-rose-has-its-thorn": 2,
+      "white-lion-when-the-children-cry": 2,
+      "cinderella-dont-know-what-you-got": 2,
+      "cinderella-nobodys-fool": 1,
+      "skid-row-18-and-life": 1
+    }
+  },
+  {
+    "query_id": "q_thrash_fast",
+    "query": "fast aggressive thrash metal",
+    "rationale": "The three canonical catalog thrash-tagged recordings are highly relevant; Accept receives grade 1 because MusicBrainz includes thrash metal but curator tags describe traditional/melodic metal.",
+    "relevance": {
+      "slayer-raining-blood": 2,
+      "anthrax-caught-in-a-mosh": 2,
+      "megadeth-peace-sells": 2,
+      "accept-princess-of-the-dawn": 1
+    }
+  },
+  {
+    "query_id": "q_prog_90s",
+    "query": "progressive melodic metal from the 1990s",
+    "rationale": "Pull Me Under explicitly has progressive metal, melodic metal, and 1990s metadata; Emerald Sword matches melodic metal and decade but not progressive metal.",
+    "relevance": {
+      "dream-theater-pull-me-under": 2,
+      "rhapsody-emerald-sword": 1
+    }
+  },
+  {
+    "query_id": "q_traditional_80s",
+    "query": "classic traditional heavy metal from the 1980s",
+    "rationale": "Grade 2 requires explicit traditional-heavy-metal tags in the 1980s; grade 1 covers adjacent NWOBHM/speed-metal catalog entries.",
+    "relevance": {
+      "dio-holy-diver": 2,
+      "dio-rainbow-in-the-dark": 2,
+      "judas-priest-breaking-the-law": 2,
+      "judas-priest-another-thing-comin": 2,
+      "iron-maiden-the-trooper": 2,
+      "iron-maiden-run-to-the-hills": 2,
+      "accept-balls-to-the-wall": 2,
+      "accept-princess-of-the-dawn": 2,
+      "ozzy-osbourne-crazy-train": 2,
+      "motorhead-ace-of-spades": 1,
+      "def-leppard-photograph": 1
+    }
+  },
+  {
+    "query_id": "q_hair_ballad",
+    "query": "80s hair metal power ballad",
+    "rationale": "Highly relevant songs have all three explicit tags: power ballad, hair metal, and 1980s.",
+    "relevance": {
+      "warrant-heaven": 2,
+      "dokken-alone-again": 2,
+      "motley-crue-home-sweet-home": 2,
+      "poison-every-rose-has-its-thorn": 2,
+      "cinderella-nobodys-fool": 2,
+      "white-lion-when-the-children-cry": 2,
+      "cinderella-dont-know-what-you-got": 2,
+      "skid-row-18-and-life": 2
+    }
+  },
+  {
+    "query_id": "q_power_melodic",
+    "query": "melodic power metal",
+    "rationale": "Helloween and Rhapsody entries explicitly carry both power-metal and melodic-metal tags.",
+    "relevance": {
+      "helloween-i-want-out": 2,
+      "helloween-eagle-fly-free": 2,
+      "helloween-future-world": 2,
+      "rhapsody-emerald-sword": 2
+    }
+  },
+  {
+    "query_id": "q_nwobhm",
+    "query": "classic NWOBHM",
+    "rationale": "Grade 2 uses explicit NWOBHM tags on central traditional-heavy-metal entries; Motörhead and Def Leppard receive grade 1 as adjacent catalog examples.",
+    "relevance": {
+      "iron-maiden-the-trooper": 2,
+      "iron-maiden-run-to-the-hills": 2,
+      "judas-priest-breaking-the-law": 2,
+      "judas-priest-another-thing-comin": 2,
+      "motorhead-ace-of-spades": 1,
+      "def-leppard-photograph": 1
+    }
+  },
+  {
+    "query_id": "q_progressive",
+    "query": "progressive metal",
+    "rationale": "Pull Me Under is the only catalog song explicitly tagged and genred as progressive metal.",
+    "relevance": {
+      "dream-theater-pull-me-under": 2
+    }
+  },
+  {
+    "query_id": "q_acoustic_ballad",
+    "query": "acoustic hard rock ballad",
+    "rationale": "Poison combines acoustic and power-ballad metadata; Bon Jovi combines acoustic and hard-rock metadata; other explicit power ballads are partial matches.",
+    "relevance": {
+      "poison-every-rose-has-its-thorn": 2,
+      "bon-jovi-wanted-dead-or-alive": 2,
+      "motley-crue-home-sweet-home": 1,
+      "cinderella-dont-know-what-you-got": 1,
+      "white-lion-when-the-children-cry": 1
+    }
+  },
+  {
+    "query_id": "q_aggressive_80s",
+    "query": "aggressive 80s metal",
+    "rationale": "Raining Blood has an explicit aggressive tag; the other 1980s thrash/speed-metal recordings are relevant but lack that exact tag.",
+    "relevance": {
+      "slayer-raining-blood": 2,
+      "anthrax-caught-in-a-mosh": 1,
+      "megadeth-peace-sells": 1,
+      "motorhead-ace-of-spades": 1
+    }
+  },
+  {
+    "query_id": "q_scorpions",
+    "query": "Scorpions melodic hard rock",
+    "rationale": "Both Scorpions recordings have explicit melodic/hard-rock evidence and satisfy the artist constraint.",
+    "relevance": {
+      "scorpions-still-loving-you": 2,
+      "scorpions-rock-you-like-a-hurricane": 2
+    }
+  },
+  {
+    "query_id": "q_dream_theater",
+    "query": "Dream Theater progressive metal",
+    "rationale": "Pull Me Under is the only Dream Theater recording and explicitly carries progressive-metal metadata.",
+    "relevance": {
+      "dream-theater-pull-me-under": 2
+    }
+  },
+  {
+    "query_id": "q_glam_drive",
+    "query": "80s glam metal hard rock for driving",
+    "rationale": "Grades use explicit 1980s glam/hair-metal plus hard-rock metadata; driving is subjective and does not affect labels.",
+    "relevance": {
+      "ratt-round-and-round": 2,
+      "skid-row-youth-gone-wild": 2,
+      "bon-jovi-livin-on-a-prayer": 2,
+      "def-leppard-pour-some-sugar-on-me": 2,
+      "poison-every-rose-has-its-thorn": 1,
+      "twisted-sister-were-not-gonna-take-it": 1,
+      "quiet-riot-cum-on-feel-the-noize": 1
+    }
+  },
+  {
+    "query_id": "q_dio_melodic",
+    "query": "Dio melodic traditional heavy metal",
+    "rationale": "Rainbow in the Dark has both melodic and traditional-heavy-metal tags; Holy Diver is traditional heavy metal by Dio without melodic metadata.",
+    "relevance": {
+      "dio-rainbow-in-the-dark": 2,
+      "dio-holy-diver": 1
+    }
+  },
+  {
+    "query_id": "q_speed_metal",
+    "query": "fast 80s speed metal",
+    "rationale": "Grade 2 requires explicit speed-metal metadata in the 1980s; Slayer is adjacent aggressive thrash and receives grade 1.",
+    "relevance": {
+      "anthrax-caught-in-a-mosh": 2,
+      "megadeth-peace-sells": 2,
+      "motorhead-ace-of-spades": 2,
+      "helloween-i-want-out": 2,
+      "slayer-raining-blood": 1
+    }
+  }
+]

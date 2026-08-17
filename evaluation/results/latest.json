@@ -1,0 +1,5422 @@
+{
+  "dataset_size": 15,
+  "reranker_model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "cold_reranker_load_seconds": 11.02740976899804,
+  "summary": {
+    "dense": {
+      "recall_at_5": 0.6178643578643579,
+      "recall_at_10": 0.7701226551226551,
+      "precision_at_5": 0.44,
+      "mrr_at_10": 0.8666666666666667,
+      "ndcg_at_5": 0.6871662877218506,
+      "ndcg_at_10": 0.7246427990176386,
+      "mean_latency_seconds": 0.013495803200688291
+    },
+    "hybrid": {
+      "recall_at_5": 0.7318109668109668,
+      "recall_at_10": 0.9372943722943723,
+      "precision_at_5": 0.5866666666666667,
+      "mrr_at_10": 0.9666666666666667,
+      "ndcg_at_5": 0.8728555961020109,
+      "ndcg_at_10": 0.9096234563366568,
+      "mean_latency_seconds": 0.016298093400352324
+    },
+    "hybrid_reranker": {
+      "recall_at_5": 0.8051443001443002,
+      "recall_at_10": 0.9372943722943723,
+      "precision_at_5": 0.6666666666666666,
+      "mrr_at_10": 1.0,
+      "ndcg_at_5": 0.9756432742150859,
+      "ndcg_at_10": 0.9698150559581169,
+      "mean_latency_seconds": 0.02985372779997609
+    }
+  },
+  "queries": [
+    {
+      "query_id": "q_ballad_80s",
+      "query": "melodic 80s hard rock power ballad",
+      "rationale": "Grade 2 requires 1980s plus explicit power-ballad and melodic/hard-rock evidence; grade 1 covers explicit power ballads with slightly weaker melodic or hard-rock metadata.",
+      "ground_truth": {
+        "scorpions-still-loving-you": 2,
+        "whitesnake-is-this-love": 2,
+        "warrant-heaven": 2,
+        "dokken-alone-again": 2,
+        "motley-crue-home-sweet-home": 2,
+        "poison-every-rose-has-its-thorn": 2,
+        "white-lion-when-the-children-cry": 2,
+        "cinderella-dont-know-what-you-got": 2,
+        "cinderella-nobodys-fool": 1,
+        "skid-row-18-and-life": 1
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": [
+          "hard rock",
+          "power ballad"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.7406256198883057
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.7233065962791443
+          },
+          {
+            "rank": 3,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 0.7231363654136658
+          },
+          {
+            "rank": 4,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.7045350074768066
+          },
+          {
+            "rank": 5,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": 0.6905393600463867
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": 0.6888982653617859
+          },
+          {
+            "rank": 7,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.6875782012939453
+          },
+          {
+            "rank": 8,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.6870002150535583
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6856280565261841
+          },
+          {
+            "rank": 10,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.6855036020278931
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7406256198883057,
+            "bm25_rank": 1,
+            "bm25_score": 4.105474954697951,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 0.03200204813108039,
+            "dense_rank": 3,
+            "dense_score": 0.7231363654136658,
+            "bm25_rank": 2,
+            "bm25_score": 4.105474954697951,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "rank": 3,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.030776515151515152,
+            "dense_rank": 4,
+            "dense_score": 0.7045350074768066,
+            "bm25_rank": 6,
+            "bm25_score": 3.387668378191143,
+            "fusion_score": 0.030776515151515152
+          },
+          {
+            "rank": 4,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.03055037313432836,
+            "dense_rank": 7,
+            "dense_score": 0.6875782012939453,
+            "bm25_rank": 4,
+            "bm25_score": 3.6409387617078046,
+            "fusion_score": 0.03055037313432836
+          },
+          {
+            "rank": 5,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.0304147465437788,
+            "dense_rank": 2,
+            "dense_score": 0.7233065962791443,
+            "bm25_rank": 10,
+            "bm25_score": 2.935097534321289,
+            "fusion_score": 0.0304147465437788
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": 0.029857397504456328,
+            "dense_rank": 6,
+            "dense_score": 0.6888982653617859,
+            "bm25_rank": 8,
+            "bm25_score": 3.1027379330666847,
+            "fusion_score": 0.029857397504456328
+          },
+          {
+            "rank": 7,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": 0.029273504273504274,
+            "dense_rank": 5,
+            "dense_score": 0.6905393600463867,
+            "bm25_rank": 12,
+            "bm25_score": 2.769876491278281,
+            "fusion_score": 0.029273504273504274
+          },
+          {
+            "rank": 8,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.02919863597612958,
+            "dense_rank": 8,
+            "dense_score": 0.6870002150535583,
+            "bm25_rank": 9,
+            "bm25_score": 2.9794084647883468,
+            "fusion_score": 0.02919863597612958
+          },
+          {
+            "rank": 9,
+            "song_id": "motley-crue-home-sweet-home",
+            "title": "Home Sweet Home",
+            "artist": "Mötley Crüe",
+            "score": 0.02792120864410021,
+            "dense_rank": 23,
+            "dense_score": 0.6696762442588806,
+            "bm25_rank": 3,
+            "bm25_score": 3.66557472052614,
+            "fusion_score": 0.02792120864410021
+          },
+          {
+            "rank": 10,
+            "song_id": "dokken-alone-again",
+            "title": "Alone Again",
+            "artist": "Dokken",
+            "score": 0.027579737335834898,
+            "dense_rank": 22,
+            "dense_score": 0.6697491407394409,
+            "bm25_rank": 5,
+            "bm25_score": 3.521814777040328,
+            "fusion_score": 0.027579737335834898
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 2.47859525680542,
+            "dense_rank": 3,
+            "dense_score": 0.7231363654136658,
+            "bm25_rank": 2,
+            "bm25_score": 4.105474954697951,
+            "fusion_score": 0.03200204813108039,
+            "reranker_score": 2.47859525680542,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 2.14518404006958,
+            "dense_rank": 1,
+            "dense_score": 0.7406256198883057,
+            "bm25_rank": 1,
+            "bm25_score": 4.105474954697951,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 2.14518404006958,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "motley-crue-home-sweet-home",
+            "title": "Home Sweet Home",
+            "artist": "Mötley Crüe",
+            "score": 0.7103350162506104,
+            "dense_rank": 23,
+            "dense_score": 0.6696762442588806,
+            "bm25_rank": 3,
+            "bm25_score": 3.66557472052614,
+            "fusion_score": 0.02792120864410021,
+            "reranker_score": 0.7103350162506104,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.40343573689460754,
+            "dense_rank": 8,
+            "dense_score": 0.6870002150535583,
+            "bm25_rank": 9,
+            "bm25_score": 2.9794084647883468,
+            "fusion_score": 0.02919863597612958,
+            "reranker_score": 0.40343573689460754,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "dokken-alone-again",
+            "title": "Alone Again",
+            "artist": "Dokken",
+            "score": 0.16156478226184845,
+            "dense_rank": 22,
+            "dense_score": 0.6697491407394409,
+            "bm25_rank": 5,
+            "bm25_score": 3.521814777040328,
+            "fusion_score": 0.027579737335834898,
+            "reranker_score": 0.16156478226184845,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.13999345898628235,
+            "dense_rank": 7,
+            "dense_score": 0.6875782012939453,
+            "bm25_rank": 4,
+            "bm25_score": 3.6409387617078046,
+            "fusion_score": 0.03055037313432836,
+            "reranker_score": 0.13999345898628235,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": -0.5320441722869873,
+            "dense_rank": 4,
+            "dense_score": 0.7045350074768066,
+            "bm25_rank": 6,
+            "bm25_score": 3.387668378191143,
+            "fusion_score": 0.030776515151515152,
+            "reranker_score": -0.5320441722869873,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": -1.983708381652832,
+            "dense_rank": 2,
+            "dense_score": 0.7233065962791443,
+            "bm25_rank": 10,
+            "bm25_score": 2.935097534321289,
+            "fusion_score": 0.0304147465437788,
+            "reranker_score": -1.983708381652832,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": -2.2150931358337402,
+            "dense_rank": 5,
+            "dense_score": 0.6905393600463867,
+            "bm25_rank": 12,
+            "bm25_score": 2.769876491278281,
+            "fusion_score": 0.029273504273504274,
+            "reranker_score": -2.2150931358337402,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": -3.135622501373291,
+            "dense_rank": 6,
+            "dense_score": 0.6888982653617859,
+            "bm25_rank": 8,
+            "bm25_score": 3.1027379330666847,
+            "fusion_score": 0.029857397504456328,
+            "reranker_score": -3.135622501373291,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.3,
+          "recall_at_10": 0.6,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6548086577531307,
+          "ndcg_at_10": 0.6501457011914384
+        },
+        "hybrid": {
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.8,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.8687949224876583,
+          "ndcg_at_10": 0.8640388150561386
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.8,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.8998091810601819
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "dokken-alone-again",
+          "cinderella-dont-know-what-you-got",
+          "whitesnake-is-this-love",
+          "motley-crue-home-sweet-home"
+        ],
+        "moved_down": [
+          "scorpions-rock-you-like-a-hurricane",
+          "skid-row-18-and-life",
+          "scorpions-still-loving-you",
+          "bon-jovi-wanted-dead-or-alive",
+          "white-lion-when-the-children-cry",
+          "poison-every-rose-has-its-thorn"
+        ],
+        "recovered_relevant_at_5": [
+          "dokken-alone-again",
+          "motley-crue-home-sweet-home",
+          "cinderella-dont-know-what-you-got"
+        ],
+        "lost_relevant_at_5": [
+          "white-lion-when-the-children-cry",
+          "poison-every-rose-has-its-thorn"
+        ],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.018300141004147008,
+        "hybrid": 0.01634049399581272,
+        "reranker_only": 0.01446467799905804,
+        "hybrid_reranker_total": 0.03080517199487076
+      }
+    },
+    {
+      "query_id": "q_thrash_fast",
+      "query": "fast aggressive thrash metal",
+      "rationale": "The three canonical catalog thrash-tagged recordings are highly relevant; Accept receives grade 1 because MusicBrainz includes thrash metal but curator tags describe traditional/melodic metal.",
+      "ground_truth": {
+        "slayer-raining-blood": 2,
+        "anthrax-caught-in-a-mosh": 2,
+        "megadeth-peace-sells": 2,
+        "accept-princess-of-the-dawn": 1
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": null,
+        "genre_terms": [
+          "thrash metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.7017461061477661
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.667826771736145
+          },
+          {
+            "rank": 3,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6647054553031921
+          },
+          {
+            "rank": 4,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.664272129535675
+          },
+          {
+            "rank": 5,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6549574136734009
+          },
+          {
+            "rank": 6,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6495025753974915
+          },
+          {
+            "rank": 7,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6457345485687256
+          },
+          {
+            "rank": 8,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.6401914358139038
+          },
+          {
+            "rank": 9,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.638472318649292
+          },
+          {
+            "rank": 10,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.6360915899276733
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7017461061477661,
+            "bm25_rank": 1,
+            "bm25_score": 7.42691685080406,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.031754032258064516,
+            "dense_rank": 4,
+            "dense_score": 0.664272129535675,
+            "bm25_rank": 2,
+            "bm25_score": 4.04761900531762,
+            "fusion_score": 0.031754032258064516
+          },
+          {
+            "rank": 3,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.031009615384615385,
+            "dense_rank": 5,
+            "dense_score": 0.6549574136734009,
+            "bm25_rank": 4,
+            "bm25_score": 3.1297925775741366,
+            "fusion_score": 0.031009615384615385
+          },
+          {
+            "rank": 4,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.0304147465437788,
+            "dense_rank": 2,
+            "dense_score": 0.667826771736145,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.0304147465437788
+          },
+          {
+            "rank": 5,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.02964426877470356,
+            "dense_rank": 9,
+            "dense_score": 0.638472318649292,
+            "bm25_rank": 6,
+            "bm25_score": 1.1983321854397408,
+            "fusion_score": 0.02964426877470356
+          },
+          {
+            "rank": 6,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.029273504273504274,
+            "dense_rank": 12,
+            "dense_score": 0.6346278786659241,
+            "bm25_rank": 5,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.029273504273504274
+          },
+          {
+            "rank": 7,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": 0.028693528693528692,
+            "dense_rank": 18,
+            "dense_score": 0.62007075548172,
+            "bm25_rank": 3,
+            "bm25_score": 4.04761900531762,
+            "fusion_score": 0.028693528693528692
+          },
+          {
+            "rank": 8,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.02813852813852814,
+            "dense_rank": 6,
+            "dense_score": 0.6495025753974915,
+            "bm25_rank": 17,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.02813852813852814
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.028068137824235385,
+            "dense_rank": 3,
+            "dense_score": 0.6647054553031921,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385
+          },
+          {
+            "rank": 10,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": 0.027912386121341344,
+            "dense_rank": 17,
+            "dense_score": 0.6206005811691284,
+            "bm25_rank": 7,
+            "bm25_score": 1.1581361288193373,
+            "fusion_score": 0.027912386121341344
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": -1.2055153846740723,
+            "dense_rank": 1,
+            "dense_score": 0.7017461061477661,
+            "bm25_rank": 1,
+            "bm25_score": 7.42691685080406,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": -1.2055153846740723,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": -2.9529547691345215,
+            "dense_rank": 4,
+            "dense_score": 0.664272129535675,
+            "bm25_rank": 2,
+            "bm25_score": 4.04761900531762,
+            "fusion_score": 0.031754032258064516,
+            "reranker_score": -2.9529547691345215,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": -3.4083948135375977,
+            "dense_rank": 18,
+            "dense_score": 0.62007075548172,
+            "bm25_rank": 3,
+            "bm25_score": 4.04761900531762,
+            "fusion_score": 0.028693528693528692,
+            "reranker_score": -3.4083948135375977,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": -7.981456756591797,
+            "dense_rank": 5,
+            "dense_score": 0.6549574136734009,
+            "bm25_rank": 4,
+            "bm25_score": 3.1297925775741366,
+            "fusion_score": 0.031009615384615385,
+            "reranker_score": -7.981456756591797,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": -8.582183837890625,
+            "dense_rank": 12,
+            "dense_score": 0.6346278786659241,
+            "bm25_rank": 5,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.029273504273504274,
+            "reranker_score": -8.582183837890625,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": -11.086793899536133,
+            "dense_rank": 17,
+            "dense_score": 0.6206005811691284,
+            "bm25_rank": 7,
+            "bm25_score": 1.1581361288193373,
+            "fusion_score": 0.027912386121341344,
+            "reranker_score": -11.086793899536133,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -11.179673194885254,
+            "dense_rank": 2,
+            "dense_score": 0.667826771736145,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.0304147465437788,
+            "reranker_score": -11.179673194885254,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": -11.214423179626465,
+            "dense_rank": 6,
+            "dense_score": 0.6495025753974915,
+            "bm25_rank": 17,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.02813852813852814,
+            "reranker_score": -11.214423179626465,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": -11.234769821166992,
+            "dense_rank": 3,
+            "dense_score": 0.6647054553031921,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385,
+            "reranker_score": -11.234769821166992,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": -11.324478149414062,
+            "dense_rank": 9,
+            "dense_score": 0.638472318649292,
+            "bm25_rank": 6,
+            "bm25_score": 1.1983321854397408,
+            "fusion_score": 0.02964426877470356,
+            "reranker_score": -11.324478149414062,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.75,
+          "recall_at_10": 0.75,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.685704685230761,
+          "ndcg_at_10": 0.685704685230761
+        },
+        "hybrid": {
+          "recall_at_5": 0.75,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.7903299296767691,
+          "ndcg_at_10": 0.9368830196397312
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "helloween-eagle-fly-free",
+          "megadeth-peace-sells",
+          "helloween-i-want-out"
+        ],
+        "moved_down": [
+          "accept-princess-of-the-dawn",
+          "helloween-future-world",
+          "rhapsody-emerald-sword"
+        ],
+        "recovered_relevant_at_5": [
+          "megadeth-peace-sells"
+        ],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.013714003005588893,
+        "hybrid": 0.020731812004669337,
+        "reranker_only": 0.029668453000340378,
+        "hybrid_reranker_total": 0.050400265005009715
+      }
+    },
+    {
+      "query_id": "q_prog_90s",
+      "query": "progressive melodic metal from the 1990s",
+      "rationale": "Pull Me Under explicitly has progressive metal, melodic metal, and 1990s metadata; Emerald Sword matches melodic metal and decade but not progressive metal.",
+      "ground_truth": {
+        "dream-theater-pull-me-under": 2,
+        "rhapsody-emerald-sword": 1
+      },
+      "constraints": {
+        "year_min": 1990,
+        "year_max": 1999,
+        "artist": null,
+        "genre_terms": [
+          "melodic metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.6739994287490845
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6733847856521606
+          },
+          {
+            "rank": 3,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.6696898937225342
+          },
+          {
+            "rank": 4,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6561407446861267
+          },
+          {
+            "rank": 5,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6465975046157837
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.6414531469345093
+          },
+          {
+            "rank": 7,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6413261890411377
+          },
+          {
+            "rank": 8,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6412442922592163
+          },
+          {
+            "rank": 9,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.6406623125076294
+          },
+          {
+            "rank": 10,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.6385844349861145
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.03252247488101534,
+            "dense_rank": 1,
+            "dense_score": 0.6739994287490845,
+            "bm25_rank": 2,
+            "bm25_score": 5.112720896705714,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "rank": 2,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.032266458495966696,
+            "dense_rank": 3,
+            "dense_score": 0.6696898937225342,
+            "bm25_rank": 1,
+            "bm25_score": 8.838826869950097,
+            "fusion_score": 0.032266458495966696
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 4.218348503112793,
+            "dense_rank": 3,
+            "dense_score": 0.6696898937225342,
+            "bm25_rank": 1,
+            "bm25_score": 8.838826869950097,
+            "fusion_score": 0.032266458495966696,
+            "reranker_score": 4.218348503112793,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.6579083204269409,
+            "dense_rank": 1,
+            "dense_score": 0.6739994287490845,
+            "bm25_rank": 2,
+            "bm25_score": 5.112720896705714,
+            "fusion_score": 0.03252247488101534,
+            "reranker_score": 0.6579083204269409,
+            "final_rank": 2
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6885288809404666,
+          "ndcg_at_10": 0.6885288809404666
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.7967075809905066,
+          "ndcg_at_10": 0.7967075809905066
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "dream-theater-pull-me-under"
+        ],
+        "moved_down": [
+          "rhapsody-emerald-sword"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": [
+          "iron-maiden-run-to-the-hills",
+          "accept-princess-of-the-dawn",
+          "iron-maiden-the-trooper",
+          "helloween-future-world",
+          "dio-rainbow-in-the-dark",
+          "helloween-eagle-fly-free",
+          "helloween-i-want-out",
+          "anthrax-caught-in-a-mosh",
+          "cinderella-dont-know-what-you-got",
+          "quiet-riot-cum-on-feel-the-noize",
+          "accept-balls-to-the-wall",
+          "skid-row-youth-gone-wild",
+          "white-lion-when-the-children-cry",
+          "poison-every-rose-has-its-thorn",
+          "judas-priest-breaking-the-law",
+          "judas-priest-another-thing-comin",
+          "twisted-sister-were-not-gonna-take-it",
+          "dokken-alone-again",
+          "skid-row-18-and-life",
+          "cinderella-nobodys-fool",
+          "bon-jovi-livin-on-a-prayer",
+          "motorhead-ace-of-spades",
+          "def-leppard-pour-some-sugar-on-me",
+          "ozzy-osbourne-crazy-train",
+          "warrant-heaven",
+          "scorpions-rock-you-like-a-hurricane",
+          "motley-crue-home-sweet-home",
+          "megadeth-peace-sells",
+          "ratt-round-and-round",
+          "def-leppard-photograph",
+          "scorpions-still-loving-you",
+          "slayer-raining-blood",
+          "dio-holy-diver",
+          "whitesnake-is-this-love",
+          "whitesnake-here-i-go-again",
+          "bon-jovi-wanted-dead-or-alive"
+        ]
+      },
+      "latency_seconds": {
+        "dense": 0.013861023999197641,
+        "hybrid": 0.018306933001440484,
+        "reranker_only": 0.015433745997142978,
+        "hybrid_reranker_total": 0.03374067899858346
+      }
+    },
+    {
+      "query_id": "q_traditional_80s",
+      "query": "classic traditional heavy metal from the 1980s",
+      "rationale": "Grade 2 requires explicit traditional-heavy-metal tags in the 1980s; grade 1 covers adjacent NWOBHM/speed-metal catalog entries.",
+      "ground_truth": {
+        "dio-holy-diver": 2,
+        "dio-rainbow-in-the-dark": 2,
+        "judas-priest-breaking-the-law": 2,
+        "judas-priest-another-thing-comin": 2,
+        "iron-maiden-the-trooper": 2,
+        "iron-maiden-run-to-the-hills": 2,
+        "accept-balls-to-the-wall": 2,
+        "accept-princess-of-the-dawn": 2,
+        "ozzy-osbourne-crazy-train": 2,
+        "motorhead-ace-of-spades": 1,
+        "def-leppard-photograph": 1
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": [
+          "traditional heavy metal",
+          "heavy metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.7014530897140503
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.7002929449081421
+          },
+          {
+            "rank": 3,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6927723288536072
+          },
+          {
+            "rank": 4,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.6916797757148743
+          },
+          {
+            "rank": 5,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.6916661262512207
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6912834048271179
+          },
+          {
+            "rank": 7,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6838221549987793
+          },
+          {
+            "rank": 8,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.6802288293838501
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6779060959815979
+          },
+          {
+            "rank": 10,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 0.6777472496032715
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.032018442622950824,
+            "dense_rank": 1,
+            "dense_score": 0.7014530897140503,
+            "bm25_rank": 4,
+            "bm25_score": 4.660576690342367,
+            "fusion_score": 0.032018442622950824
+          },
+          {
+            "rank": 2,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.031754032258064516,
+            "dense_rank": 4,
+            "dense_score": 0.6916797757148743,
+            "bm25_rank": 2,
+            "bm25_score": 4.943185597433683,
+            "fusion_score": 0.031754032258064516
+          },
+          {
+            "rank": 3,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.031544957774465976,
+            "dense_rank": 6,
+            "dense_score": 0.6912834048271179,
+            "bm25_rank": 1,
+            "bm25_score": 5.927365056319498,
+            "fusion_score": 0.031544957774465976
+          },
+          {
+            "rank": 4,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.03036576949620428,
+            "dense_rank": 9,
+            "dense_score": 0.6779060959815979,
+            "bm25_rank": 3,
+            "bm25_score": 4.849519613019541,
+            "fusion_score": 0.03036576949620428
+          },
+          {
+            "rank": 5,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.030309988518943745,
+            "dense_rank": 7,
+            "dense_score": 0.6838221549987793,
+            "bm25_rank": 5,
+            "bm25_score": 4.647448150430749,
+            "fusion_score": 0.030309988518943745
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.02976190476190476,
+            "dense_rank": 3,
+            "dense_score": 0.6927723288536072,
+            "bm25_rank": 12,
+            "bm25_score": 3.420533556494646,
+            "fusion_score": 0.02976190476190476
+          },
+          {
+            "rank": 7,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.02904040404040404,
+            "dense_rank": 12,
+            "dense_score": 0.6743496656417847,
+            "bm25_rank": 6,
+            "bm25_score": 4.403665452621021,
+            "fusion_score": 0.02904040404040404
+          },
+          {
+            "rank": 8,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 0.028991596638655463,
+            "dense_rank": 10,
+            "dense_score": 0.6777472496032715,
+            "bm25_rank": 8,
+            "bm25_score": 3.9167584717895867,
+            "fusion_score": 0.028991596638655463
+          },
+          {
+            "rank": 9,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.027623285131627734,
+            "dense_rank": 2,
+            "dense_score": 0.7002929449081421,
+            "bm25_rank": 27,
+            "bm25_score": 1.896472952847302,
+            "fusion_score": 0.027623285131627734
+          },
+          {
+            "rank": 10,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.027425373134328357,
+            "dense_rank": 20,
+            "dense_score": 0.6558721661567688,
+            "bm25_rank": 7,
+            "bm25_score": 3.926220651658113,
+            "fusion_score": 0.027425373134328357
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 5.3369317054748535,
+            "dense_rank": 6,
+            "dense_score": 0.6912834048271179,
+            "bm25_rank": 1,
+            "bm25_score": 5.927365056319498,
+            "fusion_score": 0.031544957774465976,
+            "reranker_score": 5.3369317054748535,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 5.0808610916137695,
+            "dense_rank": 4,
+            "dense_score": 0.6916797757148743,
+            "bm25_rank": 2,
+            "bm25_score": 4.943185597433683,
+            "fusion_score": 0.031754032258064516,
+            "reranker_score": 5.0808610916137695,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 5.00407600402832,
+            "dense_rank": 3,
+            "dense_score": 0.6927723288536072,
+            "bm25_rank": 12,
+            "bm25_score": 3.420533556494646,
+            "fusion_score": 0.02976190476190476,
+            "reranker_score": 5.00407600402832,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 4.735016345977783,
+            "dense_rank": 1,
+            "dense_score": 0.7014530897140503,
+            "bm25_rank": 4,
+            "bm25_score": 4.660576690342367,
+            "fusion_score": 0.032018442622950824,
+            "reranker_score": 4.735016345977783,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 4.387664794921875,
+            "dense_rank": 12,
+            "dense_score": 0.6743496656417847,
+            "bm25_rank": 6,
+            "bm25_score": 4.403665452621021,
+            "fusion_score": 0.02904040404040404,
+            "reranker_score": 4.387664794921875,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 4.322726726531982,
+            "dense_rank": 7,
+            "dense_score": 0.6838221549987793,
+            "bm25_rank": 5,
+            "bm25_score": 4.647448150430749,
+            "fusion_score": 0.030309988518943745,
+            "reranker_score": 4.322726726531982,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 4.306581974029541,
+            "dense_rank": 9,
+            "dense_score": 0.6779060959815979,
+            "bm25_rank": 3,
+            "bm25_score": 4.849519613019541,
+            "fusion_score": 0.03036576949620428,
+            "reranker_score": 4.306581974029541,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 3.5666027069091797,
+            "dense_rank": 10,
+            "dense_score": 0.6777472496032715,
+            "bm25_rank": 8,
+            "bm25_score": 3.9167584717895867,
+            "fusion_score": 0.028991596638655463,
+            "reranker_score": 3.5666027069091797,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": -0.9095373153686523,
+            "dense_rank": 20,
+            "dense_score": 0.6558721661567688,
+            "bm25_rank": 7,
+            "bm25_score": 3.926220651658113,
+            "fusion_score": 0.027425373134328357,
+            "reranker_score": -0.9095373153686523,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -2.626626491546631,
+            "dense_rank": 2,
+            "dense_score": 0.7002929449081421,
+            "bm25_rank": 27,
+            "bm25_score": 1.896472952847302,
+            "fusion_score": 0.027623285131627734,
+            "reranker_score": -2.626626491546631,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.2727272727272727,
+          "recall_at_10": 0.6363636363636364,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6548086577531307,
+          "ndcg_at_10": 0.7378586491050311
+        },
+        "hybrid": {
+          "recall_at_5": 0.45454545454545453,
+          "recall_at_10": 0.7272727272727273,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.9086649763494136
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.45454545454545453,
+          "recall_at_10": 0.7272727272727273,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.9086649763494136
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "judas-priest-breaking-the-law",
+          "dio-rainbow-in-the-dark",
+          "white-lion-when-the-children-cry",
+          "judas-priest-another-thing-comin"
+        ],
+        "moved_down": [
+          "iron-maiden-run-to-the-hills",
+          "iron-maiden-the-trooper",
+          "accept-princess-of-the-dawn",
+          "helloween-future-world"
+        ],
+        "recovered_relevant_at_5": [
+          "judas-priest-another-thing-comin",
+          "dio-rainbow-in-the-dark"
+        ],
+        "lost_relevant_at_5": [
+          "accept-princess-of-the-dawn",
+          "iron-maiden-the-trooper"
+        ],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.018002306002017576,
+        "hybrid": 0.014476541000476573,
+        "reranker_only": 0.01198133800062351,
+        "hybrid_reranker_total": 0.026457879001100082
+      }
+    },
+    {
+      "query_id": "q_hair_ballad",
+      "query": "80s hair metal power ballad",
+      "rationale": "Highly relevant songs have all three explicit tags: power ballad, hair metal, and 1980s.",
+      "ground_truth": {
+        "warrant-heaven": 2,
+        "dokken-alone-again": 2,
+        "motley-crue-home-sweet-home": 2,
+        "poison-every-rose-has-its-thorn": 2,
+        "cinderella-nobodys-fool": 2,
+        "white-lion-when-the-children-cry": 2,
+        "cinderella-dont-know-what-you-got": 2,
+        "skid-row-18-and-life": 2
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": [
+          "power ballad",
+          "hair metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "cinderella-nobodys-fool",
+            "title": "Nobody’s Fool",
+            "artist": "Cinderella",
+            "score": 0.7478365302085876
+          },
+          {
+            "rank": 2,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.7301470041275024
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.7244094610214233
+          },
+          {
+            "rank": 4,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.7182434797286987
+          },
+          {
+            "rank": 5,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.7137439250946045
+          },
+          {
+            "rank": 6,
+            "song_id": "quiet-riot-cum-on-feel-the-noize",
+            "title": "Cum On Feel the Noize",
+            "artist": "Quiet Riot",
+            "score": 0.7132071256637573
+          },
+          {
+            "rank": 7,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.7119677066802979
+          },
+          {
+            "rank": 8,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.7113408446311951
+          },
+          {
+            "rank": 9,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.711208701133728
+          },
+          {
+            "rank": 10,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.7039109468460083
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "cinderella-nobodys-fool",
+            "title": "Nobody’s Fool",
+            "artist": "Cinderella",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7478365302085876,
+            "bm25_rank": 1,
+            "bm25_score": 3.644489316987138,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.030536130536130537,
+            "dense_rank": 5,
+            "dense_score": 0.7137439250946045,
+            "bm25_rank": 6,
+            "bm25_score": 3.0949860266197,
+            "fusion_score": 0.030536130536130537
+          },
+          {
+            "rank": 3,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": 0.030017921146953404,
+            "dense_rank": 12,
+            "dense_score": 0.6989790797233582,
+            "bm25_rank": 2,
+            "bm25_score": 3.630543782321179,
+            "fusion_score": 0.030017921146953404
+          },
+          {
+            "rank": 4,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.029513888888888888,
+            "dense_rank": 4,
+            "dense_score": 0.7182434797286987,
+            "bm25_rank": 12,
+            "bm25_score": 1.8655704056146563,
+            "fusion_score": 0.029513888888888888
+          },
+          {
+            "rank": 5,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.029030910609857977,
+            "dense_rank": 3,
+            "dense_score": 0.7244094610214233,
+            "bm25_rank": 16,
+            "bm25_score": 1.7297199300310755,
+            "fusion_score": 0.029030910609857977
+          },
+          {
+            "rank": 6,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.028991596638655463,
+            "dense_rank": 8,
+            "dense_score": 0.7113408446311951,
+            "bm25_rank": 10,
+            "bm25_score": 1.8991525644148166,
+            "fusion_score": 0.028991596638655463
+          },
+          {
+            "rank": 7,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.028991596638655463,
+            "dense_rank": 10,
+            "dense_score": 0.7039109468460083,
+            "bm25_rank": 8,
+            "bm25_score": 2.5797373433945583,
+            "fusion_score": 0.028991596638655463
+          },
+          {
+            "rank": 8,
+            "song_id": "motley-crue-home-sweet-home",
+            "title": "Home Sweet Home",
+            "artist": "Mötley Crüe",
+            "score": 0.028693528693528692,
+            "dense_rank": 18,
+            "dense_score": 0.6859878897666931,
+            "bm25_rank": 3,
+            "bm25_score": 3.4197459143581646,
+            "fusion_score": 0.028693528693528692
+          },
+          {
+            "rank": 9,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.028438886647841874,
+            "dense_rank": 14,
+            "dense_score": 0.6969040632247925,
+            "bm25_rank": 7,
+            "bm25_score": 2.936271072750264,
+            "fusion_score": 0.028438886647841874
+          },
+          {
+            "rank": 10,
+            "song_id": "dokken-alone-again",
+            "title": "Alone Again",
+            "artist": "Dokken",
+            "score": 0.028283227848101264,
+            "dense_rank": 19,
+            "dense_score": 0.6852831244468689,
+            "bm25_rank": 4,
+            "bm25_score": 3.156517751028237,
+            "fusion_score": 0.028283227848101264
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "cinderella-nobodys-fool",
+            "title": "Nobody’s Fool",
+            "artist": "Cinderella",
+            "score": 2.9046807289123535,
+            "dense_rank": 1,
+            "dense_score": 0.7478365302085876,
+            "bm25_rank": 1,
+            "bm25_score": 3.644489316987138,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 2.9046807289123535,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": 1.7299481630325317,
+            "dense_rank": 12,
+            "dense_score": 0.6989790797233582,
+            "bm25_rank": 2,
+            "bm25_score": 3.630543782321179,
+            "fusion_score": 0.030017921146953404,
+            "reranker_score": 1.7299481630325317,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "motley-crue-home-sweet-home",
+            "title": "Home Sweet Home",
+            "artist": "Mötley Crüe",
+            "score": 0.9279290437698364,
+            "dense_rank": 18,
+            "dense_score": 0.6859878897666931,
+            "bm25_rank": 3,
+            "bm25_score": 3.4197459143581646,
+            "fusion_score": 0.028693528693528692,
+            "reranker_score": 0.9279290437698364,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.896276593208313,
+            "dense_rank": 14,
+            "dense_score": 0.6969040632247925,
+            "bm25_rank": 7,
+            "bm25_score": 2.936271072750264,
+            "fusion_score": 0.028438886647841874,
+            "reranker_score": 0.896276593208313,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "dokken-alone-again",
+            "title": "Alone Again",
+            "artist": "Dokken",
+            "score": 0.622929036617279,
+            "dense_rank": 19,
+            "dense_score": 0.6852831244468689,
+            "bm25_rank": 4,
+            "bm25_score": 3.156517751028237,
+            "fusion_score": 0.028283227848101264,
+            "reranker_score": 0.622929036617279,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": -0.0036422796547412872,
+            "dense_rank": 5,
+            "dense_score": 0.7137439250946045,
+            "bm25_rank": 6,
+            "bm25_score": 3.0949860266197,
+            "fusion_score": 0.030536130536130537,
+            "reranker_score": -0.0036422796547412872,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": -0.34134793281555176,
+            "dense_rank": 10,
+            "dense_score": 0.7039109468460083,
+            "bm25_rank": 8,
+            "bm25_score": 2.5797373433945583,
+            "fusion_score": 0.028991596638655463,
+            "reranker_score": -0.34134793281555176,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": -3.0779685974121094,
+            "dense_rank": 8,
+            "dense_score": 0.7113408446311951,
+            "bm25_rank": 10,
+            "bm25_score": 1.8991525644148166,
+            "fusion_score": 0.028991596638655463,
+            "reranker_score": -3.0779685974121094,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": -3.8789782524108887,
+            "dense_rank": 4,
+            "dense_score": 0.7182434797286987,
+            "bm25_rank": 12,
+            "bm25_score": 1.8655704056146563,
+            "fusion_score": 0.029513888888888888,
+            "reranker_score": -3.8789782524108887,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -4.703826427459717,
+            "dense_rank": 3,
+            "dense_score": 0.7244094610214233,
+            "bm25_rank": 16,
+            "bm25_score": 1.7297199300310755,
+            "fusion_score": 0.029030910609857977,
+            "reranker_score": -4.703826427459717,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.25,
+          "recall_at_10": 0.375,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.47036528278595796,
+          "ndcg_at_10": 0.42391113584672757
+        },
+        "hybrid": {
+          "recall_at_5": 0.375,
+          "recall_at_10": 0.875,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.7227265726449518,
+          "ndcg_at_10": 0.8523720832560094
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.625,
+          "recall_at_10": 0.875,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.9202054614375518
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "dokken-alone-again",
+          "skid-row-18-and-life",
+          "cinderella-dont-know-what-you-got",
+          "motley-crue-home-sweet-home"
+        ],
+        "moved_down": [
+          "ratt-round-and-round",
+          "helloween-future-world",
+          "white-lion-when-the-children-cry",
+          "skid-row-youth-gone-wild"
+        ],
+        "recovered_relevant_at_5": [
+          "dokken-alone-again",
+          "motley-crue-home-sweet-home",
+          "cinderella-dont-know-what-you-got"
+        ],
+        "lost_relevant_at_5": [
+          "white-lion-when-the-children-cry"
+        ],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.013191621997975744,
+        "hybrid": 0.016898268997465493,
+        "reranker_only": 0.015433952001330908,
+        "hybrid_reranker_total": 0.0323322209987964
+      }
+    },
+    {
+      "query_id": "q_power_melodic",
+      "query": "melodic power metal",
+      "rationale": "Helloween and Rhapsody entries explicitly carry both power-metal and melodic-metal tags.",
+      "ground_truth": {
+        "helloween-i-want-out": 2,
+        "helloween-eagle-fly-free": 2,
+        "helloween-future-world": 2,
+        "rhapsody-emerald-sword": 2
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": null,
+        "genre_terms": [
+          "power metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.7227452993392944
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6992506980895996
+          },
+          {
+            "rank": 3,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6983457207679749
+          },
+          {
+            "rank": 4,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": 0.6856056451797485
+          },
+          {
+            "rank": 5,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6691941618919373
+          },
+          {
+            "rank": 6,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.6685732007026672
+          },
+          {
+            "rank": 7,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6638227105140686
+          },
+          {
+            "rank": 8,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.6635923385620117
+          },
+          {
+            "rank": 9,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.6628780364990234
+          },
+          {
+            "rank": 10,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6546714305877686
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7227452993392944,
+            "bm25_rank": 1,
+            "bm25_score": 2.586550641759716,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.03225806451612903,
+            "dense_rank": 2,
+            "dense_score": 0.6992506980895996,
+            "bm25_rank": 2,
+            "bm25_score": 2.5395051941968654,
+            "fusion_score": 0.03225806451612903
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": 0.03125,
+            "dense_rank": 4,
+            "dense_score": 0.6856056451797485,
+            "bm25_rank": 4,
+            "bm25_score": 2.477097738348707,
+            "fusion_score": 0.03125
+          },
+          {
+            "rank": 4,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.031024531024531024,
+            "dense_rank": 6,
+            "dense_score": 0.6685732007026672,
+            "bm25_rank": 3,
+            "bm25_score": 2.495078320480723,
+            "fusion_score": 0.031024531024531024
+          },
+          {
+            "rank": 5,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.02976190476190476,
+            "dense_rank": 3,
+            "dense_score": 0.6983457207679749,
+            "bm25_rank": 12,
+            "bm25_score": 1.7334022032060028,
+            "fusion_score": 0.02976190476190476
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.029631255487269532,
+            "dense_rank": 8,
+            "dense_score": 0.6635923385620117,
+            "bm25_rank": 7,
+            "bm25_score": 2.050951891709642,
+            "fusion_score": 0.029631255487269532
+          },
+          {
+            "rank": 7,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.02946912242686891,
+            "dense_rank": 5,
+            "dense_score": 0.6691941618919373,
+            "bm25_rank": 11,
+            "bm25_score": 1.7950200162360368,
+            "fusion_score": 0.02946912242686891
+          },
+          {
+            "rank": 8,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.029211087420042643,
+            "dense_rank": 7,
+            "dense_score": 0.6638227105140686,
+            "bm25_rank": 10,
+            "bm25_score": 1.8107701486388075,
+            "fusion_score": 0.029211087420042643
+          },
+          {
+            "rank": 9,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.028790389395194696,
+            "dense_rank": 11,
+            "dense_score": 0.6505594253540039,
+            "bm25_rank": 8,
+            "bm25_score": 2.010150685963746,
+            "fusion_score": 0.028790389395194696
+          },
+          {
+            "rank": 10,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.028006267136701922,
+            "dense_rank": 9,
+            "dense_score": 0.6628780364990234,
+            "bm25_rank": 14,
+            "bm25_score": 1.7227515382383254,
+            "fusion_score": 0.028006267136701922
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 3.9251768589019775,
+            "dense_rank": 2,
+            "dense_score": 0.6992506980895996,
+            "bm25_rank": 2,
+            "bm25_score": 2.5395051941968654,
+            "fusion_score": 0.03225806451612903,
+            "reranker_score": 3.9251768589019775,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 3.2174956798553467,
+            "dense_rank": 1,
+            "dense_score": 0.7227452993392944,
+            "bm25_rank": 1,
+            "bm25_score": 2.586550641759716,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 3.2174956798553467,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 1.4386576414108276,
+            "dense_rank": 6,
+            "dense_score": 0.6685732007026672,
+            "bm25_rank": 3,
+            "bm25_score": 2.495078320480723,
+            "fusion_score": 0.031024531024531024,
+            "reranker_score": 1.4386576414108276,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": 1.19122314453125,
+            "dense_rank": 4,
+            "dense_score": 0.6856056451797485,
+            "bm25_rank": 4,
+            "bm25_score": 2.477097738348707,
+            "fusion_score": 0.03125,
+            "reranker_score": 1.19122314453125,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": -0.5818173885345459,
+            "dense_rank": 11,
+            "dense_score": 0.6505594253540039,
+            "bm25_rank": 8,
+            "bm25_score": 2.010150685963746,
+            "fusion_score": 0.028790389395194696,
+            "reranker_score": -0.5818173885345459,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": -1.6386562585830688,
+            "dense_rank": 8,
+            "dense_score": 0.6635923385620117,
+            "bm25_rank": 7,
+            "bm25_score": 2.050951891709642,
+            "fusion_score": 0.029631255487269532,
+            "reranker_score": -1.6386562585830688,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": -1.9390844106674194,
+            "dense_rank": 9,
+            "dense_score": 0.6628780364990234,
+            "bm25_rank": 14,
+            "bm25_score": 1.7227515382383254,
+            "fusion_score": 0.028006267136701922,
+            "reranker_score": -1.9390844106674194,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": -2.104865550994873,
+            "dense_rank": 5,
+            "dense_score": 0.6691941618919373,
+            "bm25_rank": 11,
+            "bm25_score": 1.7950200162360368,
+            "fusion_score": 0.02946912242686891,
+            "reranker_score": -2.104865550994873,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": -2.183441400527954,
+            "dense_rank": 3,
+            "dense_score": 0.6983457207679749,
+            "bm25_rank": 12,
+            "bm25_score": 1.7334022032060028,
+            "fusion_score": 0.02976190476190476,
+            "reranker_score": -2.183441400527954,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": -3.364368438720703,
+            "dense_rank": 7,
+            "dense_score": 0.6638227105140686,
+            "bm25_rank": 10,
+            "bm25_score": 1.8107701486388075,
+            "fusion_score": 0.029211087420042643,
+            "reranker_score": -3.364368438720703,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.75,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.8048099750039491,
+          "ndcg_at_10": 0.9438661545147248
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "cinderella-dont-know-what-you-got",
+          "helloween-future-world",
+          "helloween-i-want-out",
+          "poison-every-rose-has-its-thorn"
+        ],
+        "moved_down": [
+          "helloween-eagle-fly-free",
+          "iron-maiden-the-trooper",
+          "accept-princess-of-the-dawn",
+          "rhapsody-emerald-sword",
+          "iron-maiden-run-to-the-hills"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.016248825999355176,
+        "hybrid": 0.014208404998498736,
+        "reranker_only": 0.011025665997294709,
+        "hybrid_reranker_total": 0.025234070995793445
+      }
+    },
+    {
+      "query_id": "q_nwobhm",
+      "query": "classic NWOBHM",
+      "rationale": "Grade 2 uses explicit NWOBHM tags on central traditional-heavy-metal entries; Motörhead and Def Leppard receive grade 1 as adjacent catalog examples.",
+      "ground_truth": {
+        "iron-maiden-the-trooper": 2,
+        "iron-maiden-run-to-the-hills": 2,
+        "judas-priest-breaking-the-law": 2,
+        "judas-priest-another-thing-comin": 2,
+        "motorhead-ace-of-spades": 1,
+        "def-leppard-photograph": 1
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": null,
+        "genre_terms": [
+          "nwobhm"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.652415931224823
+          },
+          {
+            "rank": 2,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6122459173202515
+          },
+          {
+            "rank": 3,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.5978041887283325
+          },
+          {
+            "rank": 4,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.5899186134338379
+          },
+          {
+            "rank": 5,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.5861555337905884
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.5841971039772034
+          },
+          {
+            "rank": 7,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.5721185207366943
+          },
+          {
+            "rank": 8,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.5649593472480774
+          },
+          {
+            "rank": 9,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.5642777681350708
+          },
+          {
+            "rank": 10,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.5618034601211548
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.032266458495966696,
+            "dense_rank": 3,
+            "dense_score": 0.5978041887283325,
+            "bm25_rank": 1,
+            "bm25_score": 3.0848344606778157,
+            "fusion_score": 0.032266458495966696
+          },
+          {
+            "rank": 2,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.032018442622950824,
+            "dense_rank": 1,
+            "dense_score": 0.652415931224823,
+            "bm25_rank": 4,
+            "bm25_score": 1.7674490329735202,
+            "fusion_score": 0.032018442622950824
+          },
+          {
+            "rank": 3,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.03200204813108039,
+            "dense_rank": 2,
+            "dense_score": 0.6122459173202515,
+            "bm25_rank": 3,
+            "bm25_score": 1.844328851005564,
+            "fusion_score": 0.03200204813108039
+          },
+          {
+            "rank": 4,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.031754032258064516,
+            "dense_rank": 4,
+            "dense_score": 0.5899186134338379,
+            "bm25_rank": 2,
+            "bm25_score": 2.925217729796005,
+            "fusion_score": 0.031754032258064516
+          },
+          {
+            "rank": 5,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.030536130536130537,
+            "dense_rank": 6,
+            "dense_score": 0.5841971039772034,
+            "bm25_rank": 5,
+            "bm25_score": 1.7674490329735202,
+            "fusion_score": 0.030536130536130537
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.029631255487269532,
+            "dense_rank": 8,
+            "dense_score": 0.5649593472480774,
+            "bm25_rank": 7,
+            "bm25_score": 1.5424172303389079,
+            "fusion_score": 0.029631255487269532
+          },
+          {
+            "rank": 7,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.029083245521601686,
+            "dense_rank": 5,
+            "dense_score": 0.5861555337905884,
+            "bm25_rank": 13,
+            "bm25_score": 0.0,
+            "fusion_score": 0.029083245521601686
+          },
+          {
+            "rank": 8,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": 0.028665028665028666,
+            "dense_rank": 14,
+            "dense_score": 0.5590170621871948,
+            "bm25_rank": 6,
+            "bm25_score": 1.570991342942554,
+            "fusion_score": 0.028665028665028666
+          },
+          {
+            "rank": 9,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.028370221327967807,
+            "dense_rank": 10,
+            "dense_score": 0.5618034601211548,
+            "bm25_rank": 11,
+            "bm25_score": 0.0,
+            "fusion_score": 0.028370221327967807
+          },
+          {
+            "rank": 10,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.027222222222222224,
+            "dense_rank": 12,
+            "dense_score": 0.5605498552322388,
+            "bm25_rank": 15,
+            "bm25_score": 0.0,
+            "fusion_score": 0.027222222222222224
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 2.4424452781677246,
+            "dense_rank": 2,
+            "dense_score": 0.6122459173202515,
+            "bm25_rank": 3,
+            "bm25_score": 1.844328851005564,
+            "fusion_score": 0.03200204813108039,
+            "reranker_score": 2.4424452781677246,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 1.9980885982513428,
+            "dense_rank": 1,
+            "dense_score": 0.652415931224823,
+            "bm25_rank": 4,
+            "bm25_score": 1.7674490329735202,
+            "fusion_score": 0.032018442622950824,
+            "reranker_score": 1.9980885982513428,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 1.0534453392028809,
+            "dense_rank": 3,
+            "dense_score": 0.5978041887283325,
+            "bm25_rank": 1,
+            "bm25_score": 3.0848344606778157,
+            "fusion_score": 0.032266458495966696,
+            "reranker_score": 1.0534453392028809,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.07317661494016647,
+            "dense_rank": 4,
+            "dense_score": 0.5899186134338379,
+            "bm25_rank": 2,
+            "bm25_score": 2.925217729796005,
+            "fusion_score": 0.031754032258064516,
+            "reranker_score": 0.07317661494016647,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": -0.49545079469680786,
+            "dense_rank": 6,
+            "dense_score": 0.5841971039772034,
+            "bm25_rank": 5,
+            "bm25_score": 1.7674490329735202,
+            "fusion_score": 0.030536130536130537,
+            "reranker_score": -0.49545079469680786,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": -2.239675521850586,
+            "dense_rank": 14,
+            "dense_score": 0.5590170621871948,
+            "bm25_rank": 6,
+            "bm25_score": 1.570991342942554,
+            "fusion_score": 0.028665028665028666,
+            "reranker_score": -2.239675521850586,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": -11.173554420471191,
+            "dense_rank": 8,
+            "dense_score": 0.5649593472480774,
+            "bm25_rank": 7,
+            "bm25_score": 1.5424172303389079,
+            "fusion_score": 0.029631255487269532,
+            "reranker_score": -11.173554420471191,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": -11.356389999389648,
+            "dense_rank": 12,
+            "dense_score": 0.5605498552322388,
+            "bm25_rank": 15,
+            "bm25_score": 0.0,
+            "fusion_score": 0.027222222222222224,
+            "reranker_score": -11.356389999389648,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": -11.374502182006836,
+            "dense_rank": 5,
+            "dense_score": 0.5861555337905884,
+            "bm25_rank": 13,
+            "bm25_score": 0.0,
+            "fusion_score": 0.029083245521601686,
+            "reranker_score": -11.374502182006836,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": -11.378581047058105,
+            "dense_rank": 10,
+            "dense_score": 0.5618034601211548,
+            "bm25_rank": 11,
+            "bm25_score": 0.0,
+            "fusion_score": 0.028370221327967807,
+            "reranker_score": -11.378581047058105,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.6666666666666666,
+          "recall_at_10": 0.8333333333333334,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.8453596772450142,
+          "ndcg_at_10": 0.9364262878404638
+        },
+        "hybrid": {
+          "recall_at_5": 0.8333333333333334,
+          "recall_at_10": 1.0,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.9891413446337513,
+          "ndcg_at_10": 0.9847660588058532
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.8333333333333334,
+          "recall_at_10": 1.0,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.9891413446337513,
+          "ndcg_at_10": 0.9896002894188205
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "cinderella-dont-know-what-you-got",
+          "iron-maiden-the-trooper",
+          "def-leppard-photograph"
+        ],
+        "moved_down": [
+          "judas-priest-breaking-the-law",
+          "anthrax-caught-in-a-mosh",
+          "white-lion-when-the-children-cry",
+          "accept-balls-to-the-wall"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.009728618002554867,
+        "hybrid": 0.01330443800543435,
+        "reranker_only": 0.011698522997903638,
+        "hybrid_reranker_total": 0.025002961003337987
+      }
+    },
+    {
+      "query_id": "q_progressive",
+      "query": "progressive metal",
+      "rationale": "Pull Me Under is the only catalog song explicitly tagged and genred as progressive metal.",
+      "ground_truth": {
+        "dream-theater-pull-me-under": 2
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": null,
+        "genre_terms": [
+          "progressive metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6859564781188965
+          },
+          {
+            "rank": 2,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.6787670850753784
+          },
+          {
+            "rank": 3,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6743056774139404
+          },
+          {
+            "rank": 4,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.672971248626709
+          },
+          {
+            "rank": 5,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.666420578956604
+          },
+          {
+            "rank": 6,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.6656171083450317
+          },
+          {
+            "rank": 7,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6648857593536377
+          },
+          {
+            "rank": 8,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.6557190418243408
+          },
+          {
+            "rank": 9,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.6546860337257385
+          },
+          {
+            "rank": 10,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.6545823812484741
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.03252247488101534,
+            "dense_rank": 2,
+            "dense_score": 0.6787670850753784,
+            "bm25_rank": 1,
+            "bm25_score": 5.998092730901908,
+            "fusion_score": 0.03252247488101534
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.030679156908665108,
+            "dense_rank": 1,
+            "dense_score": 0.6859564781188965,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.030679156908665108
+          },
+          {
+            "rank": 3,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.03036576949620428,
+            "dense_rank": 9,
+            "dense_score": 0.6546860337257385,
+            "bm25_rank": 3,
+            "bm25_score": 1.1983321854397408,
+            "fusion_score": 0.03036576949620428
+          },
+          {
+            "rank": 4,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.03007688828584351,
+            "dense_rank": 7,
+            "dense_score": 0.6648857593536377,
+            "bm25_rank": 6,
+            "bm25_score": 1.17773108051282,
+            "fusion_score": 0.03007688828584351
+          },
+          {
+            "rank": 5,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.028371628371628373,
+            "dense_rank": 5,
+            "dense_score": 0.666420578956604,
+            "bm25_rank": 17,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028371628371628373
+          },
+          {
+            "rank": 6,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.028068137824235385,
+            "dense_rank": 3,
+            "dense_score": 0.6743056774139404,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385
+          },
+          {
+            "rank": 7,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.02803379416282642,
+            "dense_rank": 24,
+            "dense_score": 0.6351962089538574,
+            "bm25_rank": 2,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.02803379416282642
+          },
+          {
+            "rank": 8,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.027820121951219513,
+            "dense_rank": 22,
+            "dense_score": 0.6374038457870483,
+            "bm25_rank": 4,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.027820121951219513
+          },
+          {
+            "rank": 9,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.027313266443701224,
+            "dense_rank": 18,
+            "dense_score": 0.6447727680206299,
+            "bm25_rank": 9,
+            "bm25_score": 1.121129659788353,
+            "fusion_score": 0.027313266443701224
+          },
+          {
+            "rank": 10,
+            "song_id": "bon-jovi-livin-on-a-prayer",
+            "title": "Livin’ on a Prayer",
+            "artist": "Bon Jovi",
+            "score": 0.027046783625730993,
+            "dense_rank": 16,
+            "dense_score": 0.6460620164871216,
+            "bm25_rank": 12,
+            "bm25_score": 1.069190774783674,
+            "fusion_score": 0.027046783625730993
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 2.2879109382629395,
+            "dense_rank": 2,
+            "dense_score": 0.6787670850753784,
+            "bm25_rank": 1,
+            "bm25_score": 5.998092730901908,
+            "fusion_score": 0.03252247488101534,
+            "reranker_score": 2.2879109382629395,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -7.6913604736328125,
+            "dense_rank": 1,
+            "dense_score": 0.6859564781188965,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.030679156908665108,
+            "reranker_score": -7.6913604736328125,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": -7.881711959838867,
+            "dense_rank": 24,
+            "dense_score": 0.6351962089538574,
+            "bm25_rank": 2,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.02803379416282642,
+            "reranker_score": -7.881711959838867,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "bon-jovi-livin-on-a-prayer",
+            "title": "Livin’ on a Prayer",
+            "artist": "Bon Jovi",
+            "score": -8.575471878051758,
+            "dense_rank": 16,
+            "dense_score": 0.6460620164871216,
+            "bm25_rank": 12,
+            "bm25_score": 1.069190774783674,
+            "fusion_score": 0.027046783625730993,
+            "reranker_score": -8.575471878051758,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": -8.963138580322266,
+            "dense_rank": 22,
+            "dense_score": 0.6374038457870483,
+            "bm25_rank": 4,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.027820121951219513,
+            "reranker_score": -8.963138580322266,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": -9.01988410949707,
+            "dense_rank": 7,
+            "dense_score": 0.6648857593536377,
+            "bm25_rank": 6,
+            "bm25_score": 1.17773108051282,
+            "fusion_score": 0.03007688828584351,
+            "reranker_score": -9.01988410949707,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": -9.061144828796387,
+            "dense_rank": 9,
+            "dense_score": 0.6546860337257385,
+            "bm25_rank": 3,
+            "bm25_score": 1.1983321854397408,
+            "fusion_score": 0.03036576949620428,
+            "reranker_score": -9.061144828796387,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": -9.07475757598877,
+            "dense_rank": 3,
+            "dense_score": 0.6743056774139404,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385,
+            "reranker_score": -9.07475757598877,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": -9.112616539001465,
+            "dense_rank": 5,
+            "dense_score": 0.666420578956604,
+            "bm25_rank": 17,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028371628371628373,
+            "reranker_score": -9.112616539001465,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": -9.788299560546875,
+            "dense_rank": 18,
+            "dense_score": 0.6447727680206299,
+            "bm25_rank": 9,
+            "bm25_score": 1.121129659788353,
+            "fusion_score": 0.027313266443701224,
+            "reranker_score": -9.788299560546875,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 0.5,
+          "ndcg_at_5": 0.6309297535714574,
+          "ndcg_at_10": 0.6309297535714574
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "anthrax-caught-in-a-mosh",
+          "bon-jovi-livin-on-a-prayer",
+          "helloween-i-want-out"
+        ],
+        "moved_down": [
+          "slayer-raining-blood",
+          "iron-maiden-the-trooper",
+          "accept-princess-of-the-dawn",
+          "rhapsody-emerald-sword",
+          "iron-maiden-run-to-the-hills"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.010151401002076454,
+        "hybrid": 0.012689717001194367,
+        "reranker_only": 0.011615904000791488,
+        "hybrid_reranker_total": 0.024305621001985855
+      }
+    },
+    {
+      "query_id": "q_acoustic_ballad",
+      "query": "acoustic hard rock ballad",
+      "rationale": "Poison combines acoustic and power-ballad metadata; Bon Jovi combines acoustic and hard-rock metadata; other explicit power ballads are partial matches.",
+      "ground_truth": {
+        "poison-every-rose-has-its-thorn": 2,
+        "bon-jovi-wanted-dead-or-alive": 2,
+        "motley-crue-home-sweet-home": 1,
+        "cinderella-dont-know-what-you-got": 1,
+        "white-lion-when-the-children-cry": 1
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": null,
+        "genre_terms": [
+          "hard rock"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 0.7098798751831055
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.7030089497566223
+          },
+          {
+            "rank": 3,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.6943390369415283
+          },
+          {
+            "rank": 4,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.6884986758232117
+          },
+          {
+            "rank": 5,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": 0.6811362504959106
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.6788402199745178
+          },
+          {
+            "rank": 7,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6787649393081665
+          },
+          {
+            "rank": 8,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6778907775878906
+          },
+          {
+            "rank": 9,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.67580246925354
+          },
+          {
+            "rank": 10,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.6708052754402161
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 0.032018442622950824,
+            "dense_rank": 1,
+            "dense_score": 0.7098798751831055,
+            "bm25_rank": 4,
+            "bm25_score": 2.717256498377976,
+            "fusion_score": 0.032018442622950824
+          },
+          {
+            "rank": 2,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.032018442622950824,
+            "dense_rank": 4,
+            "dense_score": 0.6884986758232117,
+            "bm25_rank": 1,
+            "bm25_score": 5.663923417764836,
+            "fusion_score": 0.032018442622950824
+          },
+          {
+            "rank": 3,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.031746031746031744,
+            "dense_rank": 3,
+            "dense_score": 0.6943390369415283,
+            "bm25_rank": 3,
+            "bm25_score": 2.717256498377976,
+            "fusion_score": 0.031746031746031744
+          },
+          {
+            "rank": 4,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": 0.0315136476426799,
+            "dense_rank": 5,
+            "dense_score": 0.6811362504959106,
+            "bm25_rank": 2,
+            "bm25_score": 4.858145739885025,
+            "fusion_score": 0.0315136476426799
+          },
+          {
+            "rank": 5,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.0304147465437788,
+            "dense_rank": 2,
+            "dense_score": 0.7030089497566223,
+            "bm25_rank": 10,
+            "bm25_score": 2.1942601908238752,
+            "fusion_score": 0.0304147465437788
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": 0.028371628371628373,
+            "dense_rank": 17,
+            "dense_score": 0.6527500748634338,
+            "bm25_rank": 5,
+            "bm25_score": 2.609035613108616,
+            "fusion_score": 0.028371628371628373
+          },
+          {
+            "rank": 7,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": 0.028258706467661692,
+            "dense_rank": 15,
+            "dense_score": 0.660298228263855,
+            "bm25_rank": 7,
+            "bm25_score": 2.5052176260608237,
+            "fusion_score": 0.028258706467661692
+          },
+          {
+            "rank": 8,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.02819138376017471,
+            "dense_rank": 9,
+            "dense_score": 0.67580246925354,
+            "bm25_rank": 13,
+            "bm25_score": 1.9719562539297262,
+            "fusion_score": 0.02819138376017471
+          },
+          {
+            "rank": 9,
+            "song_id": "whitesnake-here-i-go-again",
+            "title": "Here I Go Again",
+            "artist": "Whitesnake",
+            "score": 0.028169014084507043,
+            "dense_rank": 11,
+            "dense_score": 0.6692431569099426,
+            "bm25_rank": 11,
+            "bm25_score": 2.0761406877378357,
+            "fusion_score": 0.028169014084507043
+          },
+          {
+            "rank": 10,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": 0.027777777777777776,
+            "dense_rank": 12,
+            "dense_score": 0.6664717197418213,
+            "bm25_rank": 12,
+            "bm25_score": 2.0135671122546883,
+            "fusion_score": 0.027777777777777776
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.9749252200126648,
+            "dense_rank": 4,
+            "dense_score": 0.6884986758232117,
+            "bm25_rank": 1,
+            "bm25_score": 5.663923417764836,
+            "fusion_score": 0.032018442622950824,
+            "reranker_score": 0.9749252200126648,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": -1.327186107635498,
+            "dense_rank": 5,
+            "dense_score": 0.6811362504959106,
+            "bm25_rank": 2,
+            "bm25_score": 4.858145739885025,
+            "fusion_score": 0.0315136476426799,
+            "reranker_score": -1.327186107635498,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": -1.751062035560608,
+            "dense_rank": 1,
+            "dense_score": 0.7098798751831055,
+            "bm25_rank": 4,
+            "bm25_score": 2.717256498377976,
+            "fusion_score": 0.032018442622950824,
+            "reranker_score": -1.751062035560608,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": -1.7747598886489868,
+            "dense_rank": 3,
+            "dense_score": 0.6943390369415283,
+            "bm25_rank": 3,
+            "bm25_score": 2.717256498377976,
+            "fusion_score": 0.031746031746031744,
+            "reranker_score": -1.7747598886489868,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "skid-row-18-and-life",
+            "title": "18 and Life",
+            "artist": "Skid Row",
+            "score": -3.376457452774048,
+            "dense_rank": 17,
+            "dense_score": 0.6527500748634338,
+            "bm25_rank": 5,
+            "bm25_score": 2.609035613108616,
+            "fusion_score": 0.028371628371628373,
+            "reranker_score": -3.376457452774048,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "white-lion-when-the-children-cry",
+            "title": "When the Children Cry",
+            "artist": "White Lion",
+            "score": -3.755786895751953,
+            "dense_rank": 15,
+            "dense_score": 0.660298228263855,
+            "bm25_rank": 7,
+            "bm25_score": 2.5052176260608237,
+            "fusion_score": 0.028258706467661692,
+            "reranker_score": -3.755786895751953,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": -4.189718723297119,
+            "dense_rank": 9,
+            "dense_score": 0.67580246925354,
+            "bm25_rank": 13,
+            "bm25_score": 1.9719562539297262,
+            "fusion_score": 0.02819138376017471,
+            "reranker_score": -4.189718723297119,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "whitesnake-here-i-go-again",
+            "title": "Here I Go Again",
+            "artist": "Whitesnake",
+            "score": -4.391262531280518,
+            "dense_rank": 11,
+            "dense_score": 0.6692431569099426,
+            "bm25_rank": 11,
+            "bm25_score": 2.0761406877378357,
+            "fusion_score": 0.028169014084507043,
+            "reranker_score": -4.391262531280518,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": -4.405433654785156,
+            "dense_rank": 12,
+            "dense_score": 0.6664717197418213,
+            "bm25_rank": 12,
+            "bm25_score": 2.0135671122546883,
+            "fusion_score": 0.027777777777777776,
+            "reranker_score": -4.405433654785156,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": -4.974274158477783,
+            "dense_rank": 2,
+            "dense_score": 0.7030089497566223,
+            "bm25_rank": 10,
+            "bm25_score": 2.1942601908238752,
+            "fusion_score": 0.0304147465437788,
+            "reranker_score": -4.974274158477783,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.6,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 0.25,
+          "ndcg_at_5": 0.3949214595281854,
+          "ndcg_at_10": 0.44339401203179013
+        },
+        "hybrid": {
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.8,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 0.5,
+          "ndcg_at_5": 0.5128269782470759,
+          "ndcg_at_10": 0.6172979803306865
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.8,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.7878483464942911,
+          "ndcg_at_10": 0.8988797704782494
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "whitesnake-here-i-go-again",
+          "skid-row-18-and-life",
+          "cinderella-dont-know-what-you-got",
+          "bon-jovi-wanted-dead-or-alive",
+          "def-leppard-photograph",
+          "white-lion-when-the-children-cry",
+          "poison-every-rose-has-its-thorn"
+        ],
+        "moved_down": [
+          "scorpions-rock-you-like-a-hurricane",
+          "scorpions-still-loving-you",
+          "whitesnake-is-this-love"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.009181512999930419,
+        "hybrid": 0.01380801399500342,
+        "reranker_only": 0.013945301998319337,
+        "hybrid_reranker_total": 0.027753315993322758
+      }
+    },
+    {
+      "query_id": "q_aggressive_80s",
+      "query": "aggressive 80s metal",
+      "rationale": "Raining Blood has an explicit aggressive tag; the other 1980s thrash/speed-metal recordings are relevant but lack that exact tag.",
+      "ground_truth": {
+        "slayer-raining-blood": 2,
+        "anthrax-caught-in-a-mosh": 1,
+        "megadeth-peace-sells": 1,
+        "motorhead-ace-of-spades": 1
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": []
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.7085642218589783
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.704493522644043
+          },
+          {
+            "rank": 3,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.7035099267959595
+          },
+          {
+            "rank": 4,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.6928757429122925
+          },
+          {
+            "rank": 5,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6926608085632324
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6913270950317383
+          },
+          {
+            "rank": 7,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.6905088424682617
+          },
+          {
+            "rank": 8,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6888161301612854
+          },
+          {
+            "rank": 9,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.6844412088394165
+          },
+          {
+            "rank": 10,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.681024432182312
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7085642218589783,
+            "bm25_rank": 1,
+            "bm25_score": 4.448009061229419,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.02967032967032967,
+            "dense_rank": 5,
+            "dense_score": 0.6926608085632324,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.02967032967032967
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.02946236559139785,
+            "dense_rank": 15,
+            "dense_score": 0.6711512207984924,
+            "bm25_rank": 2,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.02946236559139785
+          },
+          {
+            "rank": 4,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.02878726010616578,
+            "dense_rank": 2,
+            "dense_score": 0.704493522644043,
+            "bm25_rank": 19,
+            "bm25_score": 1.022817065346762,
+            "fusion_score": 0.02878726010616578
+          },
+          {
+            "rank": 5,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.028693528693528692,
+            "dense_rank": 3,
+            "dense_score": 0.7035099267959595,
+            "bm25_rank": 18,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028693528693528692
+          },
+          {
+            "rank": 6,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.028309409888357256,
+            "dense_rank": 16,
+            "dense_score": 0.671013593673706,
+            "bm25_rank": 6,
+            "bm25_score": 1.17773108051282,
+            "fusion_score": 0.028309409888357256
+          },
+          {
+            "rank": 7,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.028283227848101264,
+            "dense_rank": 19,
+            "dense_score": 0.6661720275878906,
+            "bm25_rank": 4,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.028283227848101264
+          },
+          {
+            "rank": 8,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.028258706467661692,
+            "dense_rank": 7,
+            "dense_score": 0.6905088424682617,
+            "bm25_rank": 15,
+            "bm25_score": 1.0427537098530832,
+            "fusion_score": 0.028258706467661692
+          },
+          {
+            "rank": 9,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": 0.028205128205128206,
+            "dense_rank": 18,
+            "dense_score": 0.6677871346473694,
+            "bm25_rank": 5,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.028205128205128206
+          },
+          {
+            "rank": 10,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.02797067901234568,
+            "dense_rank": 4,
+            "dense_score": 0.6928757429122925,
+            "bm25_rank": 21,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.02797067901234568
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": -0.844813346862793,
+            "dense_rank": 1,
+            "dense_score": 0.7085642218589783,
+            "bm25_rank": 1,
+            "bm25_score": 4.448009061229419,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": -0.844813346862793,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": -7.919770240783691,
+            "dense_rank": 19,
+            "dense_score": 0.6661720275878906,
+            "bm25_rank": 4,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.028283227848101264,
+            "reranker_score": -7.919770240783691,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": -8.017226219177246,
+            "dense_rank": 18,
+            "dense_score": 0.6677871346473694,
+            "bm25_rank": 5,
+            "bm25_score": 1.1877793287237564,
+            "fusion_score": 0.028205128205128206,
+            "reranker_score": -8.017226219177246,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": -8.271437644958496,
+            "dense_rank": 15,
+            "dense_score": 0.6711512207984924,
+            "bm25_rank": 2,
+            "bm25_score": 1.2145209066764224,
+            "fusion_score": 0.02946236559139785,
+            "reranker_score": -8.271437644958496,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -8.353813171386719,
+            "dense_rank": 5,
+            "dense_score": 0.6926608085632324,
+            "bm25_rank": 10,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.02967032967032967,
+            "reranker_score": -8.353813171386719,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": -8.833719253540039,
+            "dense_rank": 3,
+            "dense_score": 0.7035099267959595,
+            "bm25_rank": 18,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028693528693528692,
+            "reranker_score": -8.833719253540039,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": -8.964431762695312,
+            "dense_rank": 16,
+            "dense_score": 0.671013593673706,
+            "bm25_rank": 6,
+            "bm25_score": 1.17773108051282,
+            "fusion_score": 0.028309409888357256,
+            "reranker_score": -8.964431762695312,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": -9.123936653137207,
+            "dense_rank": 7,
+            "dense_score": 0.6905088424682617,
+            "bm25_rank": 15,
+            "bm25_score": 1.0427537098530832,
+            "fusion_score": 0.028258706467661692,
+            "reranker_score": -9.123936653137207,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": -9.137971878051758,
+            "dense_rank": 4,
+            "dense_score": 0.6928757429122925,
+            "bm25_rank": 21,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.02797067901234568,
+            "reranker_score": -9.137971878051758,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": -9.301728248596191,
+            "dense_rank": 2,
+            "dense_score": 0.704493522644043,
+            "bm25_rank": 19,
+            "bm25_score": 1.022817065346762,
+            "fusion_score": 0.02878726010616578,
+            "reranker_score": -9.301728248596191,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.25,
+          "recall_at_10": 0.5,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6576630675781056,
+          "ndcg_at_10": 0.7307367417534506
+        },
+        "hybrid": {
+          "recall_at_5": 0.25,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6576630675781056,
+          "ndcg_at_10": 0.8658853780739336
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.75,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.9055866445611575,
+          "ndcg_at_10": 0.9747431774211747
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "anthrax-caught-in-a-mosh",
+          "megadeth-peace-sells",
+          "accept-balls-to-the-wall"
+        ],
+        "moved_down": [
+          "ratt-round-and-round",
+          "helloween-i-want-out",
+          "helloween-future-world",
+          "accept-princess-of-the-dawn",
+          "skid-row-youth-gone-wild"
+        ],
+        "recovered_relevant_at_5": [
+          "megadeth-peace-sells",
+          "anthrax-caught-in-a-mosh"
+        ],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.013857193000148982,
+        "hybrid": 0.016039747002650984,
+        "reranker_only": 0.01354114599962486,
+        "hybrid_reranker_total": 0.029580893002275843
+      }
+    },
+    {
+      "query_id": "q_scorpions",
+      "query": "Scorpions melodic hard rock",
+      "rationale": "Both Scorpions recordings have explicit melodic/hard-rock evidence and satisfy the artist constraint.",
+      "ground_truth": {
+        "scorpions-still-loving-you": 2,
+        "scorpions-rock-you-like-a-hurricane": 2
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": "Scorpions",
+        "genre_terms": [
+          "hard rock"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.7120013236999512
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.6861326694488525
+          },
+          {
+            "rank": 3,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.6567367315292358
+          },
+          {
+            "rank": 4,
+            "song_id": "bon-jovi-wanted-dead-or-alive",
+            "title": "Wanted Dead or Alive",
+            "artist": "Bon Jovi",
+            "score": 0.6340137124061584
+          },
+          {
+            "rank": 5,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.6311004161834717
+          },
+          {
+            "rank": 6,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6182018518447876
+          },
+          {
+            "rank": 7,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.615810751914978
+          },
+          {
+            "rank": 8,
+            "song_id": "def-leppard-pour-some-sugar-on-me",
+            "title": "Pour Some Sugar on Me",
+            "artist": "Def Leppard",
+            "score": 0.6156079173088074
+          },
+          {
+            "rank": 9,
+            "song_id": "whitesnake-is-this-love",
+            "title": "Is This Love",
+            "artist": "Whitesnake",
+            "score": 0.6155809164047241
+          },
+          {
+            "rank": 10,
+            "song_id": "bon-jovi-livin-on-a-prayer",
+            "title": "Livin’ on a Prayer",
+            "artist": "Bon Jovi",
+            "score": 0.6134939193725586
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7120013236999512,
+            "bm25_rank": 1,
+            "bm25_score": 5.942006599326051,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 0.03225806451612903,
+            "dense_rank": 2,
+            "dense_score": 0.6861326694488525,
+            "bm25_rank": 2,
+            "bm25_score": 5.461945572472883,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 6.046679496765137,
+            "dense_rank": 1,
+            "dense_score": 0.7120013236999512,
+            "bm25_rank": 1,
+            "bm25_score": 5.942006599326051,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 6.046679496765137,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "scorpions-still-loving-you",
+            "title": "Still Loving You",
+            "artist": "Scorpions",
+            "score": 5.884138107299805,
+            "dense_rank": 2,
+            "dense_score": 0.6861326694488525,
+            "bm25_rank": 2,
+            "bm25_score": 5.461945572472883,
+            "fusion_score": 0.03225806451612903,
+            "reranker_score": 5.884138107299805,
+            "final_rank": 2
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [],
+        "moved_down": [],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": [
+          "bon-jovi-wanted-dead-or-alive",
+          "poison-every-rose-has-its-thorn",
+          "def-leppard-pour-some-sugar-on-me",
+          "bon-jovi-livin-on-a-prayer",
+          "whitesnake-is-this-love",
+          "motorhead-ace-of-spades",
+          "whitesnake-here-i-go-again",
+          "ratt-round-and-round",
+          "dream-theater-pull-me-under",
+          "white-lion-when-the-children-cry",
+          "warrant-heaven",
+          "iron-maiden-run-to-the-hills",
+          "judas-priest-breaking-the-law",
+          "cinderella-dont-know-what-you-got",
+          "def-leppard-photograph",
+          "dokken-alone-again",
+          "skid-row-youth-gone-wild",
+          "motley-crue-home-sweet-home",
+          "ozzy-osbourne-crazy-train",
+          "judas-priest-another-thing-comin",
+          "skid-row-18-and-life",
+          "helloween-eagle-fly-free",
+          "dio-rainbow-in-the-dark",
+          "anthrax-caught-in-a-mosh",
+          "accept-balls-to-the-wall",
+          "iron-maiden-the-trooper",
+          "helloween-future-world",
+          "accept-princess-of-the-dawn",
+          "rhapsody-emerald-sword",
+          "helloween-i-want-out",
+          "quiet-riot-cum-on-feel-the-noize",
+          "megadeth-peace-sells",
+          "cinderella-nobodys-fool",
+          "dio-holy-diver",
+          "twisted-sister-were-not-gonna-take-it",
+          "slayer-raining-blood"
+        ]
+      },
+      "latency_seconds": {
+        "dense": 0.01334048899661866,
+        "hybrid": 0.015091724002559204,
+        "reranker_only": 0.008371618001547176,
+        "hybrid_reranker_total": 0.02346334200410638
+      }
+    },
+    {
+      "query_id": "q_dream_theater",
+      "query": "Dream Theater progressive metal",
+      "rationale": "Pull Me Under is the only Dream Theater recording and explicitly carries progressive-metal metadata.",
+      "ground_truth": {
+        "dream-theater-pull-me-under": 2
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": "Dream Theater",
+        "genre_terms": [
+          "progressive metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.7153551578521729
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6703773140907288
+          },
+          {
+            "rank": 3,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6423256397247314
+          },
+          {
+            "rank": 4,
+            "song_id": "iron-maiden-the-trooper",
+            "title": "The Trooper",
+            "artist": "Iron Maiden",
+            "score": 0.6385776996612549
+          },
+          {
+            "rank": 5,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.6383869647979736
+          },
+          {
+            "rank": 6,
+            "song_id": "cinderella-nobodys-fool",
+            "title": "Nobody’s Fool",
+            "artist": "Cinderella",
+            "score": 0.635164201259613
+          },
+          {
+            "rank": 7,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.633461594581604
+          },
+          {
+            "rank": 8,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.6332496404647827
+          },
+          {
+            "rank": 9,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6321824789047241
+          },
+          {
+            "rank": 10,
+            "song_id": "cinderella-dont-know-what-you-got",
+            "title": "Don’t Know What You Got (Till It’s Gone)",
+            "artist": "Cinderella",
+            "score": 0.6198109984397888
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.7153551578521729,
+            "bm25_rank": 1,
+            "bm25_score": 11.470956094974653,
+            "fusion_score": 0.03278688524590164
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "dream-theater-pull-me-under",
+            "title": "Pull Me Under",
+            "artist": "Dream Theater",
+            "score": 6.6525702476501465,
+            "dense_rank": 1,
+            "dense_score": 0.7153551578521729,
+            "bm25_rank": 1,
+            "bm25_score": 11.470956094974653,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 6.6525702476501465,
+            "final_rank": 1
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [],
+        "moved_down": [],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": [
+          "rhapsody-emerald-sword",
+          "accept-princess-of-the-dawn",
+          "helloween-future-world",
+          "helloween-i-want-out",
+          "iron-maiden-the-trooper",
+          "anthrax-caught-in-a-mosh",
+          "cinderella-nobodys-fool",
+          "iron-maiden-run-to-the-hills",
+          "slayer-raining-blood",
+          "helloween-eagle-fly-free",
+          "accept-balls-to-the-wall",
+          "dio-rainbow-in-the-dark",
+          "cinderella-dont-know-what-you-got",
+          "megadeth-peace-sells",
+          "def-leppard-pour-some-sugar-on-me",
+          "quiet-riot-cum-on-feel-the-noize",
+          "bon-jovi-livin-on-a-prayer",
+          "judas-priest-another-thing-comin",
+          "ratt-round-and-round",
+          "warrant-heaven",
+          "dio-holy-diver",
+          "ozzy-osbourne-crazy-train",
+          "motorhead-ace-of-spades",
+          "skid-row-18-and-life",
+          "skid-row-youth-gone-wild",
+          "twisted-sister-were-not-gonna-take-it",
+          "dokken-alone-again",
+          "judas-priest-breaking-the-law",
+          "def-leppard-photograph",
+          "white-lion-when-the-children-cry",
+          "scorpions-rock-you-like-a-hurricane",
+          "motley-crue-home-sweet-home",
+          "poison-every-rose-has-its-thorn",
+          "scorpions-still-loving-you",
+          "bon-jovi-wanted-dead-or-alive",
+          "whitesnake-is-this-love",
+          "whitesnake-here-i-go-again"
+        ]
+      },
+      "latency_seconds": {
+        "dense": 0.013396022000961239,
+        "hybrid": 0.017416474998753984,
+        "reranker_only": 0.014058041000680532,
+        "hybrid_reranker_total": 0.031474515999434516
+      }
+    },
+    {
+      "query_id": "q_glam_drive",
+      "query": "80s glam metal hard rock for driving",
+      "rationale": "Grades use explicit 1980s glam/hair-metal plus hard-rock metadata; driving is subjective and does not affect labels.",
+      "ground_truth": {
+        "ratt-round-and-round": 2,
+        "skid-row-youth-gone-wild": 2,
+        "bon-jovi-livin-on-a-prayer": 2,
+        "def-leppard-pour-some-sugar-on-me": 2,
+        "poison-every-rose-has-its-thorn": 1,
+        "twisted-sister-were-not-gonna-take-it": 1,
+        "quiet-riot-cum-on-feel-the-noize": 1
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": [
+          "hard rock",
+          "glam metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.7162271738052368
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.7064877152442932
+          },
+          {
+            "rank": 3,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.6966472268104553
+          },
+          {
+            "rank": 4,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.6822993755340576
+          },
+          {
+            "rank": 5,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6750674247741699
+          },
+          {
+            "rank": 6,
+            "song_id": "quiet-riot-cum-on-feel-the-noize",
+            "title": "Cum On Feel the Noize",
+            "artist": "Quiet Riot",
+            "score": 0.6722826957702637
+          },
+          {
+            "rank": 7,
+            "song_id": "def-leppard-pour-some-sugar-on-me",
+            "title": "Pour Some Sugar on Me",
+            "artist": "Def Leppard",
+            "score": 0.6682879328727722
+          },
+          {
+            "rank": 8,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": 0.666412353515625
+          },
+          {
+            "rank": 9,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.664014458656311
+          },
+          {
+            "rank": 10,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6593167781829834
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.032266458495966696,
+            "dense_rank": 1,
+            "dense_score": 0.7162271738052368,
+            "bm25_rank": 3,
+            "bm25_score": 3.280778437493098,
+            "fusion_score": 0.032266458495966696
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.031754032258064516,
+            "dense_rank": 2,
+            "dense_score": 0.7064877152442932,
+            "bm25_rank": 4,
+            "bm25_score": 3.217787176272276,
+            "fusion_score": 0.031754032258064516
+          },
+          {
+            "rank": 3,
+            "song_id": "def-leppard-pour-some-sugar-on-me",
+            "title": "Pour Some Sugar on Me",
+            "artist": "Def Leppard",
+            "score": 0.031054405392392875,
+            "dense_rank": 7,
+            "dense_score": 0.6682879328727722,
+            "bm25_rank": 2,
+            "bm25_score": 3.422683304740512,
+            "fusion_score": 0.031054405392392875
+          },
+          {
+            "rank": 4,
+            "song_id": "bon-jovi-livin-on-a-prayer",
+            "title": "Livin’ on a Prayer",
+            "artist": "Bon Jovi",
+            "score": 0.03009207275993712,
+            "dense_rank": 13,
+            "dense_score": 0.6577370166778564,
+            "bm25_rank": 1,
+            "bm25_score": 3.510298491124895,
+            "fusion_score": 0.03009207275993712
+          },
+          {
+            "rank": 5,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": 0.029418126757516764,
+            "dense_rank": 9,
+            "dense_score": 0.664014458656311,
+            "bm25_rank": 7,
+            "bm25_score": 2.9607320057712183,
+            "fusion_score": 0.029418126757516764
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.0288981288981289,
+            "dense_rank": 5,
+            "dense_score": 0.6750674247741699,
+            "bm25_rank": 14,
+            "bm25_score": 2.4635005802513104,
+            "fusion_score": 0.0288981288981289
+          },
+          {
+            "rank": 7,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": 0.02886002886002886,
+            "dense_rank": 3,
+            "dense_score": 0.6966472268104553,
+            "bm25_rank": 17,
+            "bm25_score": 2.1942601908238752,
+            "fusion_score": 0.02886002886002886
+          },
+          {
+            "rank": 8,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": 0.02786377708978328,
+            "dense_rank": 8,
+            "dense_score": 0.666412353515625,
+            "bm25_rank": 16,
+            "bm25_score": 2.375675229893639,
+            "fusion_score": 0.02786377708978328
+          },
+          {
+            "rank": 9,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": 0.027820121951219513,
+            "dense_rank": 4,
+            "dense_score": 0.6822993755340576,
+            "bm25_rank": 22,
+            "bm25_score": 1.6777860539956206,
+            "fusion_score": 0.027820121951219513
+          },
+          {
+            "rank": 10,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": 0.027783137179239824,
+            "dense_rank": 11,
+            "dense_score": 0.659217119216919,
+            "bm25_rank": 13,
+            "bm25_score": 2.658333571166608,
+            "fusion_score": 0.027783137179239824
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": -2.283135414123535,
+            "dense_rank": 1,
+            "dense_score": 0.7162271738052368,
+            "bm25_rank": 3,
+            "bm25_score": 3.280778437493098,
+            "fusion_score": 0.032266458495966696,
+            "reranker_score": -2.283135414123535,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": -2.932990550994873,
+            "dense_rank": 2,
+            "dense_score": 0.7064877152442932,
+            "bm25_rank": 4,
+            "bm25_score": 3.217787176272276,
+            "fusion_score": 0.031754032258064516,
+            "reranker_score": -2.932990550994873,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "bon-jovi-livin-on-a-prayer",
+            "title": "Livin’ on a Prayer",
+            "artist": "Bon Jovi",
+            "score": -3.8583436012268066,
+            "dense_rank": 13,
+            "dense_score": 0.6577370166778564,
+            "bm25_rank": 1,
+            "bm25_score": 3.510298491124895,
+            "fusion_score": 0.03009207275993712,
+            "reranker_score": -3.8583436012268066,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "def-leppard-pour-some-sugar-on-me",
+            "title": "Pour Some Sugar on Me",
+            "artist": "Def Leppard",
+            "score": -4.366156578063965,
+            "dense_rank": 7,
+            "dense_score": 0.6682879328727722,
+            "bm25_rank": 2,
+            "bm25_score": 3.422683304740512,
+            "fusion_score": 0.031054405392392875,
+            "reranker_score": -4.366156578063965,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "poison-every-rose-has-its-thorn",
+            "title": "Every Rose Has Its Thorn",
+            "artist": "Poison",
+            "score": -5.110861301422119,
+            "dense_rank": 9,
+            "dense_score": 0.664014458656311,
+            "bm25_rank": 7,
+            "bm25_score": 2.9607320057712183,
+            "fusion_score": 0.029418126757516764,
+            "reranker_score": -5.110861301422119,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "twisted-sister-were-not-gonna-take-it",
+            "title": "We’re Not Gonna Take It",
+            "artist": "Twisted Sister",
+            "score": -6.631979942321777,
+            "dense_rank": 4,
+            "dense_score": 0.6822993755340576,
+            "bm25_rank": 22,
+            "bm25_score": 1.6777860539956206,
+            "fusion_score": 0.027820121951219513,
+            "reranker_score": -6.631979942321777,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": -7.011423110961914,
+            "dense_rank": 8,
+            "dense_score": 0.666412353515625,
+            "bm25_rank": 16,
+            "bm25_score": 2.375675229893639,
+            "fusion_score": 0.02786377708978328,
+            "reranker_score": -7.011423110961914,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": -7.642948150634766,
+            "dense_rank": 5,
+            "dense_score": 0.6750674247741699,
+            "bm25_rank": 14,
+            "bm25_score": 2.4635005802513104,
+            "fusion_score": 0.0288981288981289,
+            "reranker_score": -7.642948150634766,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "def-leppard-photograph",
+            "title": "Photograph",
+            "artist": "Def Leppard",
+            "score": -7.68997859954834,
+            "dense_rank": 11,
+            "dense_score": 0.659217119216919,
+            "bm25_rank": 13,
+            "bm25_score": 2.658333571166608,
+            "fusion_score": 0.027783137179239824,
+            "reranker_score": -7.68997859954834,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "scorpions-rock-you-like-a-hurricane",
+            "title": "Rock You Like a Hurricane",
+            "artist": "Scorpions",
+            "score": -8.37929916381836,
+            "dense_rank": 3,
+            "dense_score": 0.6966472268104553,
+            "bm25_rank": 17,
+            "bm25_score": 2.1942601908238752,
+            "fusion_score": 0.02886002886002886,
+            "reranker_score": -8.37929916381836,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.42857142857142855,
+          "recall_at_10": 0.8571428571428571,
+          "precision_at_5": 0.6,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.6595245679994904,
+          "ndcg_at_10": 0.7967736418567071
+        },
+        "hybrid": {
+          "recall_at_5": 0.7142857142857143,
+          "recall_at_10": 0.8571428571428571,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.9556556201205862
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.7142857142857143,
+          "recall_at_10": 0.8571428571428571,
+          "precision_at_5": 1.0,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 0.9619535147258246
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "twisted-sister-were-not-gonna-take-it",
+          "def-leppard-photograph",
+          "bon-jovi-livin-on-a-prayer",
+          "ozzy-osbourne-crazy-train"
+        ],
+        "moved_down": [
+          "def-leppard-pour-some-sugar-on-me",
+          "scorpions-rock-you-like-a-hurricane",
+          "judas-priest-breaking-the-law"
+        ],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.016406148999521974,
+        "hybrid": 0.015916787000605837,
+        "reranker_only": 0.013046034997387324,
+        "hybrid_reranker_total": 0.02896282199799316
+      }
+    },
+    {
+      "query_id": "q_dio_melodic",
+      "query": "Dio melodic traditional heavy metal",
+      "rationale": "Rainbow in the Dark has both melodic and traditional-heavy-metal tags; Holy Diver is traditional heavy metal by Dio without melodic metadata.",
+      "ground_truth": {
+        "dio-rainbow-in-the-dark": 2,
+        "dio-holy-diver": 1
+      },
+      "constraints": {
+        "year_min": null,
+        "year_max": null,
+        "artist": "Dio",
+        "genre_terms": [
+          "traditional heavy metal",
+          "heavy metal"
+        ]
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.6995524168014526
+          },
+          {
+            "rank": 2,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 0.6767049431800842
+          },
+          {
+            "rank": 3,
+            "song_id": "accept-princess-of-the-dawn",
+            "title": "Princess of the Dawn",
+            "artist": "Accept",
+            "score": 0.6653066277503967
+          },
+          {
+            "rank": 4,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6551262140274048
+          },
+          {
+            "rank": 5,
+            "song_id": "rhapsody-emerald-sword",
+            "title": "Emerald Sword",
+            "artist": "Rhapsody",
+            "score": 0.6508923768997192
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6389760971069336
+          },
+          {
+            "rank": 7,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.6389584541320801
+          },
+          {
+            "rank": 8,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.638002872467041
+          },
+          {
+            "rank": 9,
+            "song_id": "helloween-eagle-fly-free",
+            "title": "Eagle Fly Free",
+            "artist": "Helloween",
+            "score": 0.6338386535644531
+          },
+          {
+            "rank": 10,
+            "song_id": "motley-crue-home-sweet-home",
+            "title": "Home Sweet Home",
+            "artist": "Mötley Crüe",
+            "score": 0.6252157688140869
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 0.03278688524590164,
+            "dense_rank": 1,
+            "dense_score": 0.6995524168014526,
+            "bm25_rank": 1,
+            "bm25_score": 6.273551871926192,
+            "fusion_score": 0.03278688524590164
+          },
+          {
+            "rank": 2,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 0.03225806451612903,
+            "dense_rank": 2,
+            "dense_score": 0.6767049431800842,
+            "bm25_rank": 2,
+            "bm25_score": 6.090298818602229,
+            "fusion_score": 0.03225806451612903
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "dio-rainbow-in-the-dark",
+            "title": "Rainbow in the Dark",
+            "artist": "Dio",
+            "score": 5.794970512390137,
+            "dense_rank": 1,
+            "dense_score": 0.6995524168014526,
+            "bm25_rank": 1,
+            "bm25_score": 6.273551871926192,
+            "fusion_score": 0.03278688524590164,
+            "reranker_score": 5.794970512390137,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "dio-holy-diver",
+            "title": "Holy Diver",
+            "artist": "Dio",
+            "score": 3.645319938659668,
+            "dense_rank": 2,
+            "dense_score": 0.6767049431800842,
+            "bm25_rank": 2,
+            "bm25_score": 6.090298818602229,
+            "fusion_score": 0.03225806451612903,
+            "reranker_score": 3.645319938659668,
+            "final_rank": 2
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.4,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 1.0,
+          "ndcg_at_10": 1.0
+        }
+      },
+      "analysis": {
+        "moved_up": [],
+        "moved_down": [],
+        "recovered_relevant_at_5": [],
+        "lost_relevant_at_5": [],
+        "filtered_by_metadata": [
+          "accept-princess-of-the-dawn",
+          "iron-maiden-run-to-the-hills",
+          "iron-maiden-the-trooper",
+          "judas-priest-another-thing-comin",
+          "accept-balls-to-the-wall",
+          "helloween-i-want-out",
+          "helloween-eagle-fly-free",
+          "judas-priest-breaking-the-law",
+          "rhapsody-emerald-sword",
+          "motley-crue-home-sweet-home",
+          "helloween-future-world",
+          "ozzy-osbourne-crazy-train",
+          "dream-theater-pull-me-under",
+          "slayer-raining-blood",
+          "def-leppard-pour-some-sugar-on-me",
+          "anthrax-caught-in-a-mosh",
+          "warrant-heaven",
+          "dokken-alone-again",
+          "poison-every-rose-has-its-thorn",
+          "cinderella-dont-know-what-you-got",
+          "skid-row-18-and-life",
+          "bon-jovi-livin-on-a-prayer",
+          "motorhead-ace-of-spades",
+          "quiet-riot-cum-on-feel-the-noize",
+          "ratt-round-and-round",
+          "white-lion-when-the-children-cry",
+          "def-leppard-photograph",
+          "megadeth-peace-sells",
+          "scorpions-rock-you-like-a-hurricane",
+          "twisted-sister-were-not-gonna-take-it",
+          "skid-row-youth-gone-wild",
+          "cinderella-nobodys-fool",
+          "scorpions-still-loving-you",
+          "whitesnake-is-this-love",
+          "whitesnake-here-i-go-again",
+          "bon-jovi-wanted-dead-or-alive"
+        ]
+      },
+      "latency_seconds": {
+        "dense": 0.012096137001208263,
+        "hybrid": 0.024143112994352123,
+        "reranker_only": 0.008305429000756703,
+        "hybrid_reranker_total": 0.032448541995108826
+      }
+    },
+    {
+      "query_id": "q_speed_metal",
+      "query": "fast 80s speed metal",
+      "rationale": "Grade 2 requires explicit speed-metal metadata in the 1980s; Slayer is adjacent aggressive thrash and receives grade 1.",
+      "ground_truth": {
+        "anthrax-caught-in-a-mosh": 2,
+        "megadeth-peace-sells": 2,
+        "motorhead-ace-of-spades": 2,
+        "helloween-i-want-out": 2,
+        "slayer-raining-blood": 1
+      },
+      "constraints": {
+        "year_min": 1980,
+        "year_max": 1989,
+        "artist": null,
+        "genre_terms": []
+      },
+      "rankings": {
+        "dense": [
+          {
+            "rank": 1,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.7178833484649658
+          },
+          {
+            "rank": 2,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.6985628604888916
+          },
+          {
+            "rank": 3,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.6976823806762695
+          },
+          {
+            "rank": 4,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.695220410823822
+          },
+          {
+            "rank": 5,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.6875025629997253
+          },
+          {
+            "rank": 6,
+            "song_id": "judas-priest-another-thing-comin",
+            "title": "You’ve Got Another Thing Comin’",
+            "artist": "Judas Priest",
+            "score": 0.6862740516662598
+          },
+          {
+            "rank": 7,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.6830429434776306
+          },
+          {
+            "rank": 8,
+            "song_id": "accept-balls-to-the-wall",
+            "title": "Balls to the Wall",
+            "artist": "Accept",
+            "score": 0.682113766670227
+          },
+          {
+            "rank": 9,
+            "song_id": "judas-priest-breaking-the-law",
+            "title": "Breaking the Law",
+            "artist": "Judas Priest",
+            "score": 0.6805694699287415
+          },
+          {
+            "rank": 10,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": 0.6803625822067261
+          }
+        ],
+        "hybrid": [
+          {
+            "rank": 1,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": 0.032018442622950824,
+            "dense_rank": 4,
+            "dense_score": 0.695220410823822,
+            "bm25_rank": 1,
+            "bm25_score": 3.757893135768972,
+            "fusion_score": 0.032018442622950824
+          },
+          {
+            "rank": 2,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": 0.03047794966520434,
+            "dense_rank": 1,
+            "dense_score": 0.7178833484649658,
+            "bm25_rank": 11,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.03047794966520434
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": 0.029709507042253523,
+            "dense_rank": 11,
+            "dense_score": 0.679237961769104,
+            "bm25_rank": 4,
+            "bm25_score": 3.034193323970753,
+            "fusion_score": 0.029709507042253523
+          },
+          {
+            "rank": 4,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": 0.029418126757516764,
+            "dense_rank": 7,
+            "dense_score": 0.6830429434776306,
+            "bm25_rank": 9,
+            "bm25_score": 1.121129659788353,
+            "fusion_score": 0.029418126757516764
+          },
+          {
+            "rank": 5,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": 0.028949545078577336,
+            "dense_rank": 18,
+            "dense_score": 0.6657619476318359,
+            "bm25_rank": 2,
+            "bm25_score": 3.1760038197721254,
+            "fusion_score": 0.028949545078577336
+          },
+          {
+            "rank": 6,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": 0.02878726010616578,
+            "dense_rank": 2,
+            "dense_score": 0.6985628604888916,
+            "bm25_rank": 19,
+            "bm25_score": 1.022817065346762,
+            "fusion_score": 0.02878726010616578
+          },
+          {
+            "rank": 7,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": 0.028205128205128206,
+            "dense_rank": 5,
+            "dense_score": 0.6875025629997253,
+            "bm25_rank": 18,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028205128205128206
+          },
+          {
+            "rank": 8,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": 0.02817460317460317,
+            "dense_rank": 10,
+            "dense_score": 0.6803625822067261,
+            "bm25_rank": 12,
+            "bm25_score": 1.0861423120698004,
+            "fusion_score": 0.02817460317460317
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": 0.028068137824235385,
+            "dense_rank": 3,
+            "dense_score": 0.6976823806762695,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385
+          },
+          {
+            "rank": 10,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": 0.02792120864410021,
+            "dense_rank": 23,
+            "dense_score": 0.6579950451850891,
+            "bm25_rank": 3,
+            "bm25_score": 3.1760038197721254,
+            "fusion_score": 0.02792120864410021
+          }
+        ],
+        "hybrid_reranker": [
+          {
+            "rank": 1,
+            "song_id": "megadeth-peace-sells",
+            "title": "Peace Sells",
+            "artist": "Megadeth",
+            "score": -3.279946804046631,
+            "dense_rank": 23,
+            "dense_score": 0.6579950451850891,
+            "bm25_rank": 3,
+            "bm25_score": 3.1760038197721254,
+            "fusion_score": 0.02792120864410021,
+            "reranker_score": -3.279946804046631,
+            "final_rank": 1
+          },
+          {
+            "rank": 2,
+            "song_id": "motorhead-ace-of-spades",
+            "title": "Ace of Spades",
+            "artist": "Motörhead",
+            "score": -3.3641951084136963,
+            "dense_rank": 4,
+            "dense_score": 0.695220410823822,
+            "bm25_rank": 1,
+            "bm25_score": 3.757893135768972,
+            "fusion_score": 0.032018442622950824,
+            "reranker_score": -3.3641951084136963,
+            "final_rank": 2
+          },
+          {
+            "rank": 3,
+            "song_id": "helloween-i-want-out",
+            "title": "I Want Out",
+            "artist": "Helloween",
+            "score": -3.8722684383392334,
+            "dense_rank": 11,
+            "dense_score": 0.679237961769104,
+            "bm25_rank": 4,
+            "bm25_score": 3.034193323970753,
+            "fusion_score": 0.029709507042253523,
+            "reranker_score": -3.8722684383392334,
+            "final_rank": 3
+          },
+          {
+            "rank": 4,
+            "song_id": "anthrax-caught-in-a-mosh",
+            "title": "Caught in a Mosh",
+            "artist": "Anthrax",
+            "score": -4.139330863952637,
+            "dense_rank": 18,
+            "dense_score": 0.6657619476318359,
+            "bm25_rank": 2,
+            "bm25_score": 3.1760038197721254,
+            "fusion_score": 0.028949545078577336,
+            "reranker_score": -4.139330863952637,
+            "final_rank": 4
+          },
+          {
+            "rank": 5,
+            "song_id": "helloween-future-world",
+            "title": "Future World",
+            "artist": "Helloween",
+            "score": -9.264949798583984,
+            "dense_rank": 1,
+            "dense_score": 0.7178833484649658,
+            "bm25_rank": 11,
+            "bm25_score": 1.0866876886815122,
+            "fusion_score": 0.03047794966520434,
+            "reranker_score": -9.264949798583984,
+            "final_rank": 5
+          },
+          {
+            "rank": 6,
+            "song_id": "ratt-round-and-round",
+            "title": "Round and Round",
+            "artist": "Ratt",
+            "score": -9.874188423156738,
+            "dense_rank": 5,
+            "dense_score": 0.6875025629997253,
+            "bm25_rank": 18,
+            "bm25_score": 1.0380703438689178,
+            "fusion_score": 0.028205128205128206,
+            "reranker_score": -9.874188423156738,
+            "final_rank": 6
+          },
+          {
+            "rank": 7,
+            "song_id": "slayer-raining-blood",
+            "title": "Raining Blood",
+            "artist": "Slayer",
+            "score": -10.113714218139648,
+            "dense_rank": 7,
+            "dense_score": 0.6830429434776306,
+            "bm25_rank": 9,
+            "bm25_score": 1.121129659788353,
+            "fusion_score": 0.029418126757516764,
+            "reranker_score": -10.113714218139648,
+            "final_rank": 7
+          },
+          {
+            "rank": 8,
+            "song_id": "ozzy-osbourne-crazy-train",
+            "title": "Crazy Train",
+            "artist": "Ozzy Osbourne",
+            "score": -10.130075454711914,
+            "dense_rank": 10,
+            "dense_score": 0.6803625822067261,
+            "bm25_rank": 12,
+            "bm25_score": 1.0861423120698004,
+            "fusion_score": 0.02817460317460317,
+            "reranker_score": -10.130075454711914,
+            "final_rank": 8
+          },
+          {
+            "rank": 9,
+            "song_id": "iron-maiden-run-to-the-hills",
+            "title": "Run to the Hills",
+            "artist": "Iron Maiden",
+            "score": -10.573305130004883,
+            "dense_rank": 3,
+            "dense_score": 0.6976823806762695,
+            "bm25_rank": 22,
+            "bm25_score": 1.0080055551486595,
+            "fusion_score": 0.028068137824235385,
+            "reranker_score": -10.573305130004883,
+            "final_rank": 9
+          },
+          {
+            "rank": 10,
+            "song_id": "skid-row-youth-gone-wild",
+            "title": "Youth Gone Wild",
+            "artist": "Skid Row",
+            "score": -10.57607650756836,
+            "dense_rank": 2,
+            "dense_score": 0.6985628604888916,
+            "bm25_rank": 19,
+            "bm25_score": 1.022817065346762,
+            "fusion_score": 0.02878726010616578,
+            "reranker_score": -10.57607650756836,
+            "final_rank": 10
+          }
+        ]
+      },
+      "metrics": {
+        "dense": {
+          "recall_at_5": 0.2,
+          "recall_at_10": 0.4,
+          "precision_at_5": 0.2,
+          "mrr_at_10": 0.25,
+          "ndcg_at_5": 0.16006965043811028,
+          "ndcg_at_10": 0.20136634138155998
+        },
+        "hybrid": {
+          "recall_at_5": 0.8,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.754643545271345,
+          "ndcg_at_10": 0.8620803324269911
+        },
+        "hybrid_reranker": {
+          "recall_at_5": 0.8,
+          "recall_at_10": 1.0,
+          "precision_at_5": 0.8,
+          "mrr_at_10": 1.0,
+          "ndcg_at_5": 0.9520727775370877,
+          "ndcg_at_10": 0.9933694684805374
+        }
+      },
+      "analysis": {
+        "moved_up": [
+          "ratt-round-and-round",
+          "anthrax-caught-in-a-mosh",
+          "megadeth-peace-sells"
+        ],
+        "moved_down": [
+          "motorhead-ace-of-spades",
+          "slayer-raining-blood",
+          "helloween-future-world",
+          "skid-row-youth-gone-wild"
+        ],
+        "recovered_relevant_at_5": [
+          "megadeth-peace-sells"
+        ],
+        "lost_relevant_at_5": [
+          "slayer-raining-blood"
+        ],
+        "filtered_by_metadata": []
+      },
+      "latency_seconds": {
+        "dense": 0.010961603999021463,
+        "hybrid": 0.01509893200636725,
+        "reranker_only": 0.010744685001554899,
+        "hybrid_reranker_total": 0.02584361700792215
+      }
+    }
+  ]
+}
