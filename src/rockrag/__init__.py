@@ -1,6 +1,7 @@
 """RockRAG core package."""
 
 from .catalog_loader import CatalogValidationError, load_catalog
+from .agent import AgentRunResult, RockRAGAgent
 from .embeddings import embed_documents, embed_query
 from .generator import Recommendation, generate_recommendations
 from .hybrid_retriever import HybridRetrievedSong, QueryConstraints, retrieve_hybrid
@@ -11,6 +12,8 @@ from .song_document import song_to_document
 
 __all__ = [
     "CatalogValidationError",
+    "AgentRunResult",
+    "RockRAGAgent",
     "SongRecord",
     "RetrievedSong",
     "Recommendation",

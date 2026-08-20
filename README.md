@@ -27,6 +27,28 @@ Configurable LLM: local Ollama/Qwen or Google Gemini
 Grounded Recommendations
 ```
 
+## Agent layer
+
+Phase 7 adds a single Ollama/Qwen agent using native tool calling. Tool
+selection comes from `response.message.tool_calls`; the application only
+validates and dispatches calls from an explicit registry.
+
+```text
+User
+  → Qwen Agent
+  → RockRAG Tools
+      ├── search_songs
+      ├── get_song
+      ├── compare_songs
+      └── build_playlist
+  → Hybrid Retrieval / CrossEncoder when requested by a tool
+  → auditable tool trace
+  → final response
+```
+
+The agent is bounded by `MAX_AGENT_STEPS=5`. It has no shell, file, web,
+Spotify, or external music API tools and is not a multi-agent system.
+
 The retrieval stages remain explicit:
 
 ```text
@@ -63,8 +85,8 @@ The reranker cold load measured 11.027410 seconds and is excluded from the
 warmed-up latency table. Full per-query rankings and failure analysis are in
 `evaluation/results/latest.json`.
 
-Future work includes larger-catalog evaluation, reason-grounding checks,
-agents, and application APIs. Agent/UI/API layers are not implemented.
+Future work includes larger-catalog evaluation, reason-grounding checks, and
+application APIs. UI/API and multi-agent layers are not implemented.
 
 ## Structure
 
@@ -73,7 +95,7 @@ agents, and application APIs. Agent/UI/API layers are not implemented.
 - `src/rockrag`: catalog models and transformation logic.
 - `scripts`: small executable inspection tools.
 - `evaluation`: curated qrels, transparent metrics, runner, and saved results.
-- `tests`: unit and opt-in integration tests across Phases 1–6.
+- `tests`: unit and opt-in integration tests across Phases 1–7.
 - `storage`: local Milvus Lite database and ignored model cache.
 
 ## Catalog source
