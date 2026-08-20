@@ -11,6 +11,9 @@ __pycache__/
 .idea/
 .codex/
 .agents/
+.pytest_cache/
+*.py[cod]
+__pycache__/
 .env
 
 # Model caches

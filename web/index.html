@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="RockRAG retrieval-first hard rock and metal discovery">
+<title>RockRAG — Hard Rock & Metal Discovery</title><link rel="stylesheet" href="/static/styles.css"><script src="/static/app.js" defer></script></head>
+<body><div class="glow one"></div><div class="glow two"></div><main>
+<header class="hero"><div><p class="eyebrow">RETRIEVE FIRST · GENERATE SECOND</p><h1>Rock<span>RAG</span></h1><p class="subtitle">Hybrid Retrieval + Reranking + Tool-Calling Agent<br>for Hard Rock &amp; Metal Discovery</p></div>
+<aside class="status"><p><i id="status-dot"></i><strong id="ollama-status">Checking services…</strong></p><dl><div><dt>Catalog</dt><dd id="catalog-size">—</dd></div><div><dt>Model</dt><dd id="model-name">—</dd></div></dl></aside></header>
+<nav class="badges" aria-label="Technology stack"><span>BGE</span><span>Milvus</span><span>BM25</span><span>CrossEncoder</span><span>Qwen3</span><span>Ollama</span></nav>
+<section class="workspace"><section class="panel chat"><header><div><p class="label">DISCOVERY CONSOLE</p><h2 id="mode-title">Agent</h2></div><div class="modes" role="tablist"><button class="mode active" data-mode="agent" aria-selected="true">Agent</button><button class="mode" data-mode="search" aria-selected="false">Search</button></div></header>
+<div id="messages" class="messages" aria-live="polite"><article class="message assistant"><b>RockRAG</b><p>Describe what you want to hear. Agent mode can search, compare, and build playlists; Search mode exposes retrieval directly.</p></article></div>
+<div class="chips"><button>80s melodic hard rock power ballads</button><button>Fast aggressive thrash metal</button><button>Compare Still Loving You and Is This Love</button><button>Progressive melodic metal from the 1990s</button></div>
+<form id="query-form"><label class="sr-only" for="query-input">Music request</label><textarea id="query-input" rows="3" maxlength="2000" placeholder="Ask RockRAG…" required></textarea><footer><small>Enter to send · Shift+Enter for newline</small><button id="send-button" type="submit"><span id="send-label">Send</span> ↗</button></footer></form><p class="error" id="error-message" role="alert"></p></section>
+<aside class="panel trace"><header><div><p class="label">AUDITABLE EXECUTION</p><h2>Agent Trace</h2></div><span id="trace-count">0 calls</span></header><div id="trace-content" class="empty"><strong>⌁</strong><p>Tool calls will appear here.</p><small>No hidden chain-of-thought is displayed.</small></div></aside></section>
+<section class="results"><header><div><p class="label">CATALOG RESULTS</p><h2>Recommended tracks</h2></div><span id="result-count">No results yet</span></header><div id="song-grid" class="song-grid"><p class="no-results">Run a request to see factual catalog metadata.</p></div></section>
+</main></body></html>

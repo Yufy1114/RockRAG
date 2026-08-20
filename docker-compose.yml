@@ -1,0 +1,16 @@
+services:
+  rockrag:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      LLM_PROVIDER: ollama
+      OLLAMA_MODEL: qwen3:4b-instruct
+      OLLAMA_HOST: http://host.docker.internal:11434
+      WEB_HOST: 0.0.0.0
+      WEB_PORT: 8000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./storage:/app/storage
+    restart: unless-stopped

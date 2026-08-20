@@ -22,7 +22,7 @@ MILVUS_METRIC_TYPE = "COSINE"
 MILVUS_INDEX_TYPE = "FLAT"
 DEFAULT_TOP_K = 5
 
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini").strip().lower()
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "ollama").strip().lower()
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen3:4b-instruct")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
@@ -34,3 +34,6 @@ HYBRID_RRF_CONSTANT = 60
 RERANKER_MODEL_NAME = "cross-encoder/ms-marco-MiniLM-L6-v2"
 DEFAULT_RERANK_TOP_K = 10
 MAX_AGENT_STEPS = 5
+
+WEB_HOST = os.getenv("WEB_HOST", "0.0.0.0")
+WEB_PORT = int(os.getenv("WEB_PORT", "8000"))

@@ -1,79 +1,48 @@
 # RockRAG
 
-LLM-powered Hard Rock and Heavy Metal music discovery using retrieval-first recommendations.
+An LLM-powered hard rock and metal discovery system combining hybrid retrieval,
+CrossEncoder reranking, grounded generation, and a native tool-calling agent.
 
-## Current status
+RockRAG follows one rule: **retrieve first, generate second**. Song facts come
+from a small, auditable catalog rather than the language model's memory.
 
-The current retrieval-first pipeline is:
+## Demo
 
-```text
-Song Catalog
-    ↓
-Song Documents
-    ↓
-BGE Embeddings
-    ↓
-Milvus Lite
-    + BM25 over the same song documents
-    ↓
-Reciprocal Rank Fusion
-    ↓
-Hard year/artist metadata filtering
-    ↓
-cross-encoder/ms-marco-MiniLM-L6-v2 reranking
-    ↓
-Configurable LLM: local Ollama/Qwen or Google Gemini
-    ↓
-Grounded Recommendations
+The responsive Web app has two modes: **Agent** runs the Qwen tool-calling loop
+and exposes an auditable tool trace; **Search** directly shows Hybrid +
+CrossEncoder results. Song cards display catalog metadata and clearly labeled
+reranker scores. No external artwork is fetched.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    U[User] --> UI[Web UI] --> API[FastAPI] --> A[Qwen3 Agent / Ollama]
+    A --> T{RockRAG tools}
+    T --> S[search_songs]
+    T --> G[get_song]
+    T --> C[compare_songs]
+    T --> P[build_playlist]
+    MB[MusicBrainz snapshot] --> CAT[38-song catalog] --> DOC[Song documents]
+    DOC --> BGE[BGE] --> M[Milvus Lite]
+    DOC --> BM[BM25]
+    M --> RRF[RRF]
+    BM --> RRF
+    RRF --> F[Metadata filtering] --> CE[CrossEncoder]
+    CE --> S
+    CE --> P
+    T --> A --> API --> UI
 ```
 
-## Agent layer
-
-Phase 7 adds a single Ollama/Qwen agent using native tool calling. Tool
-selection comes from `response.message.tool_calls`; the application only
-validates and dispatches calls from an explicit registry.
-
-```text
-User
-  → Qwen Agent
-  → RockRAG Tools
-      ├── search_songs
-      ├── get_song
-      ├── compare_songs
-      └── build_playlist
-  → Hybrid Retrieval / CrossEncoder when requested by a tool
-  → auditable tool trace
-  → final response
-```
-
-The agent is bounded by `MAX_AGENT_STEPS=5`. It has no shell, file, web,
-Spotify, or external music API tools and is not a multi-agent system.
-
-The retrieval stages remain explicit:
-
-```text
-Query constraints (hard: year/artist; soft: genre words)
-    + Dense BGE/Milvus ranking
-    + BM25 ranking over the unchanged song documents
-    → Reciprocal Rank Fusion
-    → hard metadata filtering
-    → CrossEncoder reranking of Hybrid candidates only
-```
-
-The generation provider is selected with `LLM_PROVIDER=ollama` or `gemini`.
-Generated song IDs are validated against the final retrieved candidates, and
-all factual display fields are backfilled from `RetrievedSong`.
+Ollama's native `tool_calls` select the four catalog-only tools. There is no
+regex routing or prompt-parsed fake tool calling. Runs retain tool names,
+arguments, outputs, steps, and latency—but never hidden chain-of-thought.
 
 ## Retrieval evaluation
 
-The curated evaluation set contains 15 Hard Rock/Metal queries with manually
-graded qrels (`2=highly relevant`, `1=relevant`). The labels use catalog
-metadata and curator taxonomy, not model-generated judgments. Metrics have
-different purposes: Recall@K checks whether relevant songs were retrieved,
-MRR rewards an early first relevant result, and nDCG rewards highly relevant
-songs appearing near the top.
-
-Actual warmed-up results:
+Actual warmed-up results on the **38-song catalog** and **15-query manually
+curated benchmark** are below. Graded qrels (`2=highly relevant`, `1=relevant`)
+come from catalog metadata and curator taxonomy, not model-generated labels.
 
 | Retrieval system | Recall@5 | Recall@10 | MRR@10 | nDCG@5 | nDCG@10 | P@5 | Mean latency |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -81,23 +50,124 @@ Actual warmed-up results:
 | Hybrid | 0.7318 | 0.9373 | 0.9667 | 0.8729 | 0.9096 | 0.5867 | 0.016298 s |
 | Hybrid + CrossEncoder | 0.8051 | 0.9373 | 1.0000 | 0.9756 | 0.9698 | 0.6667 | 0.029854 s |
 
-The reranker cold load measured 11.027410 seconds and is excluded from the
-warmed-up latency table. Full per-query rankings and failure analysis are in
-`evaluation/results/latest.json`.
+The 11.027410-second reranker cold load is excluded from steady-state latency.
+Per-query results are in `evaluation/results/latest.json`. Recall measures
+coverage, MRR rewards an early first relevant result, and nDCG includes graded
+relevance and rank position.
 
-Future work includes larger-catalog evaluation, reason-grounding checks, and
-application APIs. UI/API and multi-agent layers are not implemented.
+## Quick start
 
-## Structure
+Requirements: Ubuntu/WSL2, Python 3.11 or 3.12, and Ollama.
 
-- `data/raw`: auditable source snapshots.
-- `data/processed`: normalized song catalog.
-- `src/rockrag`: catalog models and transformation logic.
-- `scripts`: small executable inspection tools.
-- `evaluation`: curated qrels, transparent metrics, runner, and saved results.
-- `tests`: unit and opt-in integration tests across Phases 1–7.
-- `storage`: local Milvus Lite database and ignored model cache.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+cp .env.example .env
+ollama pull qwen3:4b-instruct
+ollama serve
+```
 
-## Catalog source
+In another terminal:
 
-Factual recording metadata is selected from a small, rate-limited MusicBrainz API snapshot. Genres and tags retain explicit provenance and missing values are not inferred.
+```bash
+source .venv/bin/activate
+python scripts/build_index.py
+python scripts/run_web.py
+```
+
+Open <http://localhost:8000>; API docs are at <http://localhost:8000/docs>.
+The equivalent direct command is:
+
+```bash
+PYTHONPATH=src uvicorn rockrag.api:app --host 0.0.0.0 --port 8000
+```
+
+The page loads when Ollama is offline. Search remains available, while Agent
+requests return a clear `503` local-LLM error.
+
+## Configuration
+
+```dotenv
+LLM_PROVIDER=ollama
+OLLAMA_MODEL=qwen3:4b-instruct
+OLLAMA_HOST=http://localhost:11434
+WEB_HOST=0.0.0.0
+WEB_PORT=8000
+```
+
+Gemini remains optional. Never commit `.env` or API keys.
+
+## Docker
+
+The image contains the Python application and catalog, but not Qwen, model
+caches, `.env`, or the Milvus database. Compose uses host Ollama and persists
+artifacts in `./storage`.
+
+```bash
+OLLAMA_HOST=0.0.0.0:11434 ollama serve
+docker compose up --build
+```
+
+Compose maps `host.docker.internal` to the Linux/WSL host gateway. If the mounted
+storage is empty, the entrypoint runs the existing `scripts/build_index.py` once;
+subsequent starts reuse `storage/rockrag.db`. First startup can be slow while BGE
+files download into the mounted cache.
+
+## API
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `GET` | `/health` | Catalog/model status and lightweight Ollama reachability |
+| `POST` | `/api/agent` | Existing auditable RockRAG agent |
+| `POST` | `/api/search` | Hybrid retrieval + CrossEncoder reranking |
+| `GET` | `/api/song/{song_id}` | Exact factual lookup |
+| `POST` | `/api/compare` | Metadata comparison for 2–5 songs |
+
+All bodies use explicit Pydantic models and appear in `/docs`.
+
+## Tests
+
+```bash
+source .venv/bin/activate
+python -m unittest discover -s tests -v
+```
+
+Normal Agent/API tests use fake clients and never call Qwen. Existing integration
+coverage validates Milvus and the cached CrossEncoder. The Phase 8 run discovered
+60 tests: 57 passed by default and 3 opt-in integrations were skipped; those 3
+integration tests also passed when explicitly enabled.
+
+## Repository structure
+
+```text
+data/          MusicBrainz snapshot and normalized catalog
+evaluation/    Curated qrels, metrics, runner, saved results
+src/rockrag/   Models, retrieval, reranking, agent, API
+scripts/       Index, inspection, CLI and Web launchers
+tests/         Phase 1–8 tests
+web/           Framework-free HTML, CSS and safe DOM JavaScript
+storage/       Ignored Milvus DB and model cache
+```
+
+## Data provenance and grounding
+
+Recording metadata comes from a rate-limited MusicBrainz snapshot. Curator tags
+retain explicit provenance and missing facts are not inferred. Structured
+generation validates IDs and backfills factual fields from retrieved records.
+
+## Limitations
+
+- The 38-song catalog cannot provide broad coverage.
+- The 15-query manually curated benchmark is too small for general claims.
+- Reason-level faithfulness is constrained but not automatically guaranteed.
+- The MS MARCO reranker is not trained specifically for music.
+- Local LLM and embedding cold starts are hardware-dependent.
+- There are no accounts, history database, streaming, or authentication.
+
+## Future work
+
+- Expand and version the verified catalog and evaluation set.
+- Train or select a music-domain reranker.
+- Add automatic reason-faithfulness validation and response streaming.
+- Add reproducible cloud deployment and optional music-service integrations.

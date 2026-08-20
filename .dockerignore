@@ -1,0 +1,16 @@
+.git
+.gitignore
+.venv
+.venv.windows-backup
+.env
+.idea
+.codex
+.agents
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+storage/models
+storage/rockrag.db
+storage/*.db
+evaluation/results
